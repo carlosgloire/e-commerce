@@ -1,7 +1,10 @@
 <?php
+    $title='Dashboard admin';
+    require_once('../../html_partials/header.html.php');
     require_once('../../functions.php');
     require_once('../../database/db.php'); 
     require_once ('../../js/flash.php');
+  
 
 // Check if the user is logged in
 if (!isset($_SESSION['admin'])) {
