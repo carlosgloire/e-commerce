@@ -2,13 +2,14 @@
     require_once('../../functions.php');
     require_once('../../database/db.php'); 
     require_once ('../../js/flash.php');
-    if(! $_SESSION['admin']){
+    
+    if(! $_SESSION['admin'] ?? null){
         header("location:login.php");
     }
 
 
 // Set the session expiration time
-$expiration = 1 * 60; // 5 minutes in seconds
+$expiration = 1440 * 60; // 24 hours in seconds
 
 // Check if the session has expired
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > $expiration)) {
