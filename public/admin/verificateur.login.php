@@ -1,6 +1,8 @@
 <?php
- $username=htmlspecialchars($_POST['username']);
- $password=htmlspecialchars (sha1($_POST['password'])); 
+
+ 
+ $username = isset($_POST['username']) ? $_POST['username'] : '';
+
  // cryptage du mot de passe
  
  if( empty($_POST['username']) && empty($_POST['password'])){
@@ -9,8 +11,11 @@
      $_SESSION['flash_message']="Veillez Remplir tous les champs !!";
     
 }
+
+
      else{
-         
+        $username=htmlspecialchars($_POST['username']);
+        $password=htmlspecialchars (sha1($_POST['password']));  
          $requete = $bdd->prepare("SELECT username FROM admins WHERE (mail = :mail OR username= :username ) AND password = :password ");
        //Connecter l'utilisateur avec son nom ou son email
          $requete->bindValue(':mail', $username);
@@ -24,6 +29,7 @@
      }
      else{
       $_SESSION['flash_message']="Nom d'utilisateur ou Mot de passe incorrecte !!";
-        
+    
      }
      }
+ 

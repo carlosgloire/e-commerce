@@ -1,9 +1,14 @@
 <?php
- require_once('../../database/db.php'); 
-$username=htmlspecialchars($_POST['username']);
-$mail=htmlspecialchars($_POST['mail']);
-$password=htmlspecialchars (sha1($_POST['password'])); 
+ require_once('../../database/db.php');
 
+ //On submission, the values are retrieved from $_POST and stored in variables
+ $name = isset($_POST['username']) ? $_POST['username'] : '';
+ $mail = isset($_POST['mail']) ? $_POST['mail'] : '';
+   if(isset($_POST['submit'])){
+    $username=htmlspecialchars($_POST['username']);
+    $mail=htmlspecialchars($_POST['mail']);
+    $password=htmlspecialchars (sha1($_POST['password'])); 
+   }
 
     if( empty($_POST['username']) AND empty($_POST['password'])AND  empty($_POST['mail'])){
         //si l'utilisateur clique sur le bouton d'envoie verifie si tous les champs ne sont pas vide
