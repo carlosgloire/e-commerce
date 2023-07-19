@@ -36,8 +36,6 @@ if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 
 
 // Update the last activity time
 $_SESSION['LAST_ACTIVITY'] = time();
-
-  $title='login mavi';
     
 ?>
 <?php require_once('../../html_partials/header.html.php'); ?>
