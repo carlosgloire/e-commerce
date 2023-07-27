@@ -8,12 +8,7 @@
 ?>
 
 <?php
-// Check if the user is logged in
-if (! isset($_SESSION['admin'])) {
-    // Redirect to the login page if not logged in
-    header("Location: login.php");
-    exit();
-}
+
 require_once('verificateur.admin.php');
 ?>
 <?php require_once('header.admin.php'); ?>
