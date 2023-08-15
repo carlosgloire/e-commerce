@@ -40,6 +40,14 @@ function logout(){
     }
     
 }
+function categorie(){
+    require_once('database/db.php');
+    $sql = 'SELECT id, nom FROM categories';
+    $statement = $bdd->prepare($sql);
+    $statement->execute();
+    $categories = $statement->fetchAll();
+
+}
 
   
   

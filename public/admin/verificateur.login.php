@@ -23,12 +23,7 @@
           $_SESSION['flash_message']="Nom d'utilisateur ou Mot de passe incorrecte !!";
      }
      }
-     
-     
-     
-     
-     
-     
+          
      
      
      

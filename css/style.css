@@ -3,15 +3,9 @@
 @tailwind utilities;
 
 @layer utilities{
-    a:hover{
-        background-color: rgb(209, 213, 219);
-    }
-
+   
     a{
-        font-size: 1.2rem;
-        font-weight: 600;
-        padding-left: 80px;
-        padding-top: 4px;
-        padding-bottom: 4px;
+        text-decoration: none;
+         
     }
 }
