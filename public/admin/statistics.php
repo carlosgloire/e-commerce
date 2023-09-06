@@ -1,5 +1,5 @@
 <?php
-    $title='Produits ';
+    $title='Statistics';
     require_once('../../html_partials/header.html.php');
     require_once('../../functions.php');
     require_once('../../database/db.php'); 

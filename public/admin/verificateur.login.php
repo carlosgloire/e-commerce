@@ -16,7 +16,7 @@
          $requete->execute();
          if ($admin = $requete->fetch(PDO::FETCH_ASSOC)) {
             $_SESSION['admin']=$admin;
-            header("location:dashboard.php");
+            header("location:index.php");
             exit;
         }
      else{

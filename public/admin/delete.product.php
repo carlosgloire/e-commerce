@@ -11,7 +11,6 @@ require_once('../../database/db.php');
         echo '<script>alert("Produit supprimé avec succès");</script>';
         echo '<script>window.location.href="product.php";</script>';
         exit;
-   
  }
  else{
     echo '<script>alert("Aucun produit trouvé");</script>';

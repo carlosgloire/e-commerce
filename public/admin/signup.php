@@ -9,7 +9,7 @@
     require_once('verificateur.signup.php');
     }
     ?>
-<div class='max-w-lg mx-auto p-12 pl-24 pr-24 bg-gray-200 mt-[10%] text-lg rounded-lg shadow-lg text-gray-950 '>
+<div class='max-w-lg mx-auto p-12 pl-24 pr-24 bg-gray-200 mt-[5%] text-lg rounded-lg shadow-lg text-gray-950 '>
     <h1 class=" text-3xl mb-4 font-medium" >Enregistrement admin</h1>
   <form action="" method='post' class='mb-2'>
     <div class='grid'>
@@ -28,7 +28,8 @@
         <label for="password" method='password'> Repeter le mot de passe</label>
         <input class="rounded  w-full border-[1px] border-black px-3" type="password" name='password2'>
     </div>
-    <input class='bg-gray-700  text-white p-x-20 w-full rounded font-medium hover:bg-gray-900 ' type="submit" name='submit' value='Enregistrer'>
+    <input class='bg-gray-700  text-white mt-2 p-x-20 w-full rounded font-medium hover:bg-gray-900 ' type="submit" name='submit' value='Enregistrer'>
+    <p class="text-base">Avez-vous pas un compte? <a class="hover:bg-transparent text-blue-600 text-base pl-0" href="login.php">connectez-vous</a> </p>
 </form>
 <?php if(isset($_POST['submit']) && ! empty($_SESSION['flash_message']))
 {

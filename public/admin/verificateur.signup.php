@@ -8,7 +8,7 @@
     $username=htmlspecialchars($_POST['username']);
     $mail=htmlspecialchars($_POST['mail']);
     $password=htmlspecialchars (sha1($_POST['password'])); 
-   }
+   
 
     if( empty($_POST['username']) AND empty($_POST['password'])AND  empty($_POST['mail'])){
         //si l'utilisateur clique sur le bouton d'envoie verifie si tous les champs ne sont pas vide
@@ -45,7 +45,7 @@ elseif(!preg_match("#[-_@%&* ]+#",$_POST['password']))// password should contain
 {
     $_SESSION['flash_message']="Votre mot de passe doit contenir aumoins un charactere special !!"; 
 }
-elseif(strlen($_POST['password'])!=8) //password should contain 8 characters
+elseif(strlen($_POST['password']) < 8) //password should contain 8 characters
 {
             
     $_SESSION['flash_message']="Votre mot de passe doit contenir aumoins une 8 characteres ex: a-z0-9 -_@%&* !!"; 
@@ -64,5 +64,5 @@ elseif($_POST['password'] != $_POST['password2'])
         exit;
     }
   
-   
+}
 ?>

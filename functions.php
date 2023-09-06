@@ -11,7 +11,13 @@ function notconnected(){
         exit();
     }
 }
-
+function notsearch(){
+    if (! isset($_SESSION['admin'])) {
+        // Redirect to the login page if not logged in
+        header("Location: home.php");
+        exit();
+    }
+}
 // Fonction pour verifier l'expiration de la session
 function verifysession(){
     // Set the session expiration time
@@ -40,14 +46,32 @@ function logout(){
     }
     
 }
-function categorie(){
-    require_once('database/db.php');
-    $sql = 'SELECT id, nom FROM categories';
-    $statement = $bdd->prepare($sql);
-    $statement->execute();
-    $categories = $statement->fetchAll();
 
+function slugify_blog_page($content) {
+    // Remove all non-alpha-numeric characters and spaces.
+    $content = preg_replace('/[^a-zA-Z0-9\s]/', '', $content);
+  
+    // Replace all spaces with hyphens.
+    $content = str_replace(' ', '-', $content);
+  
+    // Lowercase the text.
+    $content = strtolower($content);
+  
+    // Return the slugified text.
+    return $content;
+    $content = file_get_contents('product.php');
+  }
+ 
+ //Recuperer l'id du produit 
+function get_element_by_id(){
+    require_once('../../database/db.php');
+    if(isset($_GET['id']) AND !empty($_GET['id']) ){
+       $getid = $_GET['id'];
+       $recupproduct = $bdd->prepare('SELECT *FROM produits WHERE id = ?');
+       $recupproduct->execute(array($getid));
+       $infos = $recupproduct->fetch();
+       $titre=$infos['titre'];
+       $description=$infos['contenu'];
+       $prix=$infos['prix'];
+    }
 }
-
-  
-  

@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../dist/style.css">
-    <title><?= $title ?? 'E-commerce' ?></title>
+    <link rel="sitemap" href="sitemap.xml" />
+    <title><?= $title ?? 'E-commerce/Admin' ?></title>
    
 </head>
-<body >
-  
+<body>

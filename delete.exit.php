@@ -8,8 +8,6 @@
       if (result) {
         alert("Delete action will be performed.");
         // Perform delete action here
-      } else {
-        alert("Exiting without deleting.");
       }
     }
   </script>
