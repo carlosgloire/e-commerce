@@ -4,7 +4,7 @@
     require_once('verificateur.admin.php');
 ?>
 
-<nav class="bg-white shadow-lg h-full col-span-1 border" >
+<nav class="bg-white shadow-lg col-span-1 border h-[100vh]" >
     <aside class="grid gap-4 mt-6 ">
         <a class="pl-20 pt-[4px] pb-[4px] hover:bg-gray-300  text-xl" id="dashboard-link" href="#">Dashboard</a>
         <a class="pl-20 pt-[4px] pb-[4px] hover:bg-gray-300  text-xl" id="product-link" href="#" >Produits</a>

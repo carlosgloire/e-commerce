@@ -1,5 +1,6 @@
 <?php
  require_once('../../database/db.php');
+ require_once('verificateur.admin.php');
 
  //On submission, the values are retrieved from $_POST and stored in variables
  $name = isset($_POST['username']) ? $_POST['username'] : '';

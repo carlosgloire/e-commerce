@@ -28,7 +28,7 @@ $(document).ready(function() {
     $("#product-link").removeClass("bg-gray-300");
     $("#statistics-link").removeClass("bg-gray-300");
     $("#help-link").removeClass("bg-gray-300");
-    window.location.href = "dashboard.php?page=dashboard";
+    window.location.href = "index.php?page=dashboard";
   });
 
   // Handle the click on Product link

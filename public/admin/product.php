@@ -5,10 +5,7 @@
     require_once('../../database/db.php'); 
     require_once ('../../js/flash.php');
 ?>
-<?php
-
-require_once('verificateur.admin.php');
-?>
+<?php require_once('verificateur.admin.php');?>
 <?php require_once('header.admin.php'); ?>
 <section class="grid grid-cols-5" >
     <?php require_once('navbar.php');?>
@@ -29,7 +26,7 @@ require_once('verificateur.admin.php');
         <div class="flex justify-between">
             <h1 class="text-xl font-semibold mb-3 "></h1> 
             <p class="bg-blue-500 text-white px-5 mb-5 shadow-sm rounded text-center text-base " >
-                <a  href="add_product.php"> Ajouter un produit</a> 
+                <a  href="categories.php"> Ajouter un produit</a> 
             </p>  
         </div>
       
@@ -37,12 +34,12 @@ require_once('verificateur.admin.php');
             <div class=" flex  flex-wrap  gap-6">
                 <?php  
                 
-                            $produit = $bdd->query("SELECT p.id, p.titre, p.contenu,p.filename,p.prix,c.nom FROM produits p,categories c where p.cat_id=c.cat_id"); 
+                            $produit = $bdd->query("SELECT p.id, p.titre,SUBSTRING( p.contenu ,1,22) AS description ,p.filename,p.prix,c.nom FROM produits p,categories c where p.cat_id=c.cat_id"); 
                             if($produit->rowCount() > 0){
                                 while($row = $produit->fetch(PDO::FETCH_ASSOC)){
                                     ?>
                                     
-                                        <div class="shadow-sm p-3 mb-4 border w-[23%] ">
+                                        <div class="shadow-sm p-3 mb-4 border  ">
                                             <div class="flex justify-between">
                                                 <h1 class=" mb-3   text-blue-500">
                                             <?php echo $row['titre']; ?>
@@ -50,12 +47,11 @@ require_once('verificateur.admin.php');
                                             <p class="text-gray-400"><?php echo $row['nom'];?></p>
                                             </div> 
                                             <div class="flex mt-1 gap-10">
-                                                <?php require_once('../admin/verificateur.add_product.php');?>
-                                                <img class="rounded  object-cover " src="../admin/image_produits_db/<?php echo $row['filename']; ?>">          
+                                                <img class="rounded   w-[270px] h-[270px] object-cover " src="../admin/image_produits_db/<?php echo $row['filename']; ?>">          
                                             </div>
                                             <div>
                                                 <?php
-                                                    echo $row['contenu']; 
+                                                    echo $row['description'].'...'; 
                                                 ?> 
                                             </div>
                                             <div>
@@ -64,10 +60,11 @@ require_once('verificateur.admin.php');
                                                 ?> 
                                             </div>
                                             <div class="flex mt-5 gap-5">
-                                                <p class="border px-2 bg-blue-500 text-white"><a  href="edit.php?id=<?php echo $row['id'];?>">Modifier</a>
+                                               <a  href="edit.php?id=<?php echo $row['id'];?>"><img src="icones/edit.png" alt="icone edit" width="30" title="Modifier"></a>
                                                 <form action="delete.product.php?id=<?php echo $row['id'];?>" method="POST">
-                                                <button class="border px-4 bg-blue-500 text-white" >Supprimer</button> 
+                                                <button  ><img src="icones/delete.png" alt="icone supprimer" width="30px" title="Supprimer"></button> 
                                                 </form>
+                                                <a href="voir_plus.php?id=<?php echo $row['id']?>"><img src="icones/more.png" alt="Icone voir plus" title="Voir plus" width="30px"></a>
                                             </div>
                                         </div>
                             

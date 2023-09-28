@@ -57,4 +57,3 @@
 ?> 
 </div>
 <?php require_once('../../html_partials/footer.html.php'); ?>
-<?php var_dump($getid)?>

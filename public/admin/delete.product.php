@@ -1,6 +1,7 @@
 
 <?php
-require_once('../../database/db.php'); 
+require_once('../../database/db.php');
+require_once('verificateur.admin.php');
  if(isset($_GET['id']) AND !empty($_GET['id'])){
     $getid = $_GET['id'];
     $recupart = $bdd->prepare('SELECT *FROM produits WHERE id = ?');

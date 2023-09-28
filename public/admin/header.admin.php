@@ -11,7 +11,7 @@ require_once('../../database/db.php');
         </div>
         
          <div class="flex ">
-         <form class="form-horizontal" action="search.php" method="post">
+         <form class="form-horizontal" action="search_admin.php" method="post">
             <div class="flex gap-3">
                 <input type="text" class="rounded  border-[1px] border-gray-500 bg-gray-100  px-3" name="search"  placeholder="Recherchez ici">
                 <button type="submit" name="save" class="bg-blue-500 text-white px-2 mb-5 shadow-sm rounded text-center text-base hidden" >Submit</button>   

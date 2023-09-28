@@ -3,6 +3,7 @@ error_reporting(0);
 
 $msg = "";
  require_once('../../database/db.php');
+ require_once('verificateur.admin.php');
  //Recuperer l'id du produit
  if(isset($_GET['id']) AND !empty($_GET['id']) ){
     $getid = $_GET['id'];

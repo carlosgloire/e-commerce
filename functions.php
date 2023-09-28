@@ -11,6 +11,15 @@ function notconnected(){
         exit();
     }
 }
+function not_user_connected(){
+    if (! isset($_SESSION['user'])) {
+        // Redirect to the login page if not logged in
+        header("Location: ../user/login.php");
+        exit();
+    }
+}
+
+
 function notsearch(){
     if (! isset($_SESSION['admin'])) {
         // Redirect to the login page if not logged in
@@ -46,7 +55,15 @@ function logout(){
     }
     
 }
-
+function logout_user(){
+    if (isset($_POST['logout2'])) {
+        // Destroy the session and redirect to the login page
+        session_destroy();
+        header("Location: ../produits/home.php");
+        exit();
+    }
+    
+}
 function slugify_blog_page($content) {
     // Remove all non-alpha-numeric characters and spaces.
     $content = preg_replace('/[^a-zA-Z0-9\s]/', '', $content);
@@ -62,16 +79,3 @@ function slugify_blog_page($content) {
     $content = file_get_contents('product.php');
   }
  
- //Recuperer l'id du produit 
-function get_element_by_id(){
-    require_once('../../database/db.php');
-    if(isset($_GET['id']) AND !empty($_GET['id']) ){
-       $getid = $_GET['id'];
-       $recupproduct = $bdd->prepare('SELECT *FROM produits WHERE id = ?');
-       $recupproduct->execute(array($getid));
-       $infos = $recupproduct->fetch();
-       $titre=$infos['titre'];
-       $description=$infos['contenu'];
-       $prix=$infos['prix'];
-    }
-}

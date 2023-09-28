@@ -1,15 +1,17 @@
 
 <?php 
 $title='Menu';
-require_once('../../html_partials/public.header.php');
+require_once('../../html_partials/header.html.php');
 require_once('../../database/db.php');
 
 ?>
-    <header id="header" class="flex bg-white justify-between px-20 py-4 shadow-sm mb-1 border">
+    <header id="header" class="flex bg-white justify-between pl-10 py-4 pr-4 shadow-sm mb-1 border w-full" style="z-index: 10;position:fixed;">
+        <a href="home.php"><img src="images/gs_logo.png" alt="logo glory shop" width="30px" title="Acceuil"></a>
         <div class="text-black gap-20 font-semibold">
             <a class="pr-8" href="home.php">ACCEUIL</a>
-            <a class="pr-8" href="#">CREATIONS</a>
-            <a class="pr-8" href="#">CONTACTS</a>
+            <a class="pr-8" href="#">CATEGORIES</a>
+            <a class="pr-8" href="#">APROPOS</a>
+            <a  class="pr-8 text-blue-500" href="../user/login.php">INSCRIPTIO <span class="text-black">ou</span> CONNEXION</a>
         </div>
         
          <div class="flex ">
