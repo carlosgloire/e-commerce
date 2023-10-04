@@ -10,7 +10,8 @@ if(isset($_POST['modify'])){
 	$filetype = $_FILES["uploadfile"]["type"];
 	$tempname = $_FILES["uploadfile"]["tmp_name"];
 	$folder = "./user_images/" . $filename;
-	$allowed_formats= array('jpg','jpeg','png');
+	$allowedExtensions = ['png', 'jpg', 'jpeg'];
+    $pattern = '/\.(' . implode('|', $allowedExtensions) . ')$/i';
     if(empty($_POST['username'])&& empty($_POST['phone']) && empty($_POST['mail'])&& empty($_POST['file']))
     {
         $_SESSION['flash_message']="Veillez completer tous les champs!!"; 
@@ -24,6 +25,11 @@ if(isset($_POST['modify'])){
     elseif( empty($_POST['phone'])){
         $_SESSION['flash_message']="Veillez écrire le numéro de téléphone!";  
     }
+    elseif (! preg_match($pattern, $_FILES['uploadfile']['name']) AND !empty($_FILES['uploadfile']['name'])) {
+       
+        $_SESSION['flash_message'] = "Votre fichier doit etre au format \"jpg,jpeg ou png \"";
+       
+    }
     else{
         if (! move_uploaded_file($tempname, $folder)) {
             $_SESSION['flash_message']="ERREUR!";   
@@ -33,7 +39,7 @@ if(isset($_POST['modify'])){
             $user_id=$getid['user_id'];
             $updtadeproduct = $bdd->prepare('UPDATE users SET username = ?, mail = ?,  phone = ? ,filename = ? WHERE user_id=?');
             $updtadeproduct->execute(array($username,$mail,$phone,$filename,$user_id));  
-            echo '<script>alert("les donnés de l\'utilisateur modifié avec succès");</script>';
+            echo '<script>alert("les donnés de l\'utilisateur ont modifié avec succès");</script>';
             echo '<script>window.location.href="settings.php";</script>';
             exit;           
     }

@@ -2,8 +2,8 @@
     require_once('../../html_partials/header.html.php');
   
 ?>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
+
+<script type="text/javascript">
 $(document).ready(function() {
   // Get the page name from the URL parameter (e.g., ?page=dashboard)
   const urlParams = new URLSearchParams(window.location.search);

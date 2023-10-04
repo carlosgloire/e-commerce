@@ -1,7 +1,7 @@
 <?php
 
  require_once('../../database/db.php');
- require_once('verificateur.admin.php');
+
  //Recuperer les produits apartir de l'id du produit
  if(isset($_GET['id']) AND !empty($_GET['id']) ){
     $getid = $_GET['id'];

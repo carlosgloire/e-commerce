@@ -1,18 +1,15 @@
-<?php require_once('essaie.php')?>
-<!DOCTYPE html>
-<html lang="en">
+<html class="dark-mode">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8">
+  <title>Dark Mode Toggle</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="darkmode.js"></script>
 </head>
 <body>
-<form action="insert_checkboxes.php" method="post">
-  <input type="checkbox" name="checkboxes[]" value="checkbox_value_1">
-  <input type="checkbox" name="checkboxes[]" value="checkbox_value_2">
-  <input type="checkbox" name="checkboxes[]" value="checkbox_value_3">
-  <input type="submit" value="Submit">
-</form>
+  <button class="dark-mode-toggle">Toggle Dark Mode</button>
 
+  <h1>This is a heading</h1>
+
+  <p>This is a paragraph.</p>
 </body>
 </html>

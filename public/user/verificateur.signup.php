@@ -15,7 +15,8 @@
 	$filetype = $_FILES["uploadfile"]["type"];
 	$tempname = $_FILES["uploadfile"]["tmp_name"];
 	$folder = "./user_images/" . $filename;
-	$allowed_formats= '/\. (jpg|jpeg|png)$/i';
+	$allowedExtensions = ['png', 'jpg', 'jpeg'];
+    $pattern = '/\.(' . implode('|', $allowedExtensions) . ')$/i';
 
     if( empty($_POST['username']) AND empty($_POST['password'])AND  empty($_POST['mail'])){
         //si l'utilisateur clique sur le bouton d'envoie verifie si tous les champs ne sont pas vide
@@ -38,10 +39,10 @@
         $_SESSION['flash_message']="Le numéro que vous avez saisi est incorrect vous devez ecrire le numéro avec indicatif Ex:+243900000000"; 
         
     }
-    elseif(!preg_match($allowed_formats,$_FILES["uploadfile"]["name"])){
-
-        $_SESSION['flash_message']="Votre fichier doit etre au format \"jpg,jpeg ou png \""; 
-        
+    elseif (! preg_match($pattern, $_FILES['uploadfile']['name']) AND !empty($_FILES['uploadfile']['name'])) {
+       
+            $_SESSION['flash_message'] = "Votre fichier doit etre au format \"jpg,jpeg ou png \"";
+           
     }
     elseif( empty($_POST['password'])){
         $_SESSION['flash_message']="Veillez saisir le mot de passe !!"; 
@@ -76,7 +77,7 @@ elseif($_POST['password'] != $_POST['password2'])
         if (! move_uploaded_file($tempname, $folder)) {
             $_SESSION['flash_message']="ERREUR!!";  
         } 
-        $query = $bdd->prepare('INSERT INTO users (username,mail,phone,filename,password) VALUES(?,?,?,?,?)');
+        $query = $bdd->prepare ('INSERT INTO users (username,mail,phone,filename,password) VALUES(?,?,?,?,?)');
         $query->execute(array($username,$mail,$telephone,$filename,$password));
         echo '<script>alert("Utilisateur ajouté avec succès");</script>';
         echo '<script>window.location.href="signup.php";</script>';

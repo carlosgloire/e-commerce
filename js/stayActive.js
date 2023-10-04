@@ -1,4 +1,4 @@
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 $(document).ready(function() {
     // Get the page name from the URL parameter (e.g., ?page=dashboard)
     const urlParams = new URLSearchParams(window.location.search);
