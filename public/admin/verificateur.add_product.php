@@ -5,11 +5,7 @@ error_reporting(0);
 $msg = "";
  require_once('../../database/db.php');
  require_once('verificateur.admin.php');
- //On submission, the values are retrieved from $_POST and stored in variables
- $titre = isset($_POST['titre']) ? $_POST['titre'] : '';
- $contenu = isset($_POST['contenu']) ? $_POST['contenu'] : '';
- $prix = isset($_POST['prix']) ? $_POST['prix'] : '';
- $stock = isset($_POST['stock']) ? $_POST['stock'] : '';
+
    if(isset($_POST['add'])){
     $titre=htmlspecialchars($_POST['titre']);
     $contenu=htmlspecialchars($_POST['contenu']);
@@ -55,10 +51,8 @@ $msg = "";
             $_SESSION['flash_message']="ERREUR!!";  
         } 
         $query = $bdd->prepare('INSERT INTO produits (titre,filename,contenu,size,cat_id,stock,prix) VALUES(?,?,?,?,?,?,?)');
-        $query->execute(array($titre,$filename,$contenu,$size,$id,$stock,$price));  
-        echo '<script>alert("Produit ajoute");</script>';
-        echo '<script>window.location.href="add_product.php";</script>';
-        exit;
+        $query->execute(array($titre,$filename,$contenu,$size,$id,$stock,$price));
+        $_SESSION['flash_message']="Produit ajouté avec succès";   
     }
    }
 ?>

@@ -1,13 +1,11 @@
 <?php
 require_once('../../database/db.php');
-require_once('../../html_partials/public.header.php');
 require_once('../../js/flash2.php');
 require_once('../../functions.php');
 
 $searchErr = '';
 $product_details='';
-if(isset($_POST['save']))
-{
+
 	if(!empty($_POST['search'])){
 
 		$search = htmlspecialchars($_POST['search']);
@@ -16,7 +14,7 @@ if(isset($_POST['save']))
 		$stmt->execute();
 		$product_details = $stmt->fetchAll(PDO::FETCH_ASSOC);
         //Requete pour compter le nombre des resultats trouvee
-		$query= $bdd->prepare("select count(id) as produit from produits  where titre like '%$search%'");
+		$query= $bdd->prepare("SELECT count(id) as produit FROM produits  WHERE titre like '%$search%'");
 		$query->execute();
 
 			
@@ -27,19 +25,14 @@ if(isset($_POST['save']))
 		exit;
 	}
    
-}
 
 ?>
 
-<body>
-    <?php
-		require_once('header.admin.php');
-		?>
 		<div class="form-group">
 			<span class="error" style="color:red;"> <?php echo $searchErr;?></span>
 		</div>
 	<section class="grid grid-cols-5">
-	<?php require_once('navbar.php')?>
+	
 	    <section class="col-span-4">
 				<div>
 				<?php
@@ -55,9 +48,11 @@ if(isset($_POST['save']))
 						<?php
 					}
 					}
+				
 				?>
+
 				</div>
-			    <div class="px-10 py-4 flex  flex-wrap  gap-6 "> 
+			    <div class="flex flex-wrap  gap-6 "> 
 								
 							<?php
 							if(!$product_details)
@@ -71,7 +66,7 @@ if(isset($_POST['save']))
 								
 									?>
 								
-									<div class="shadow-sm p-3 mb-4 border w-[23%] ">
+									<div class="shadow-sm p-3 w-[270px] mb-4 border bg-white">
 										<div class="flex justify-between">
 											<h1 class=" mb-3   text-blue-500">
 										<?php echo $value['titre']; ?>
@@ -80,7 +75,7 @@ if(isset($_POST['save']))
 										</div> 
 										<div class="flex mt-1 gap-10">
 											<?php require_once('../admin/verificateur.add_product.php');?>
-											<img class="rounded   w-[270px] h-[300px] object-cover " src="../admin/image_produits_db/<?php echo $value['filename']; ?>">          
+											<img class="rounded   w-[250px] h-[250px] object-cover " src="../admin/image_produits_db/<?php echo $value['filename']; ?>">          
 										</div>
 										<div>
 											<?php
@@ -101,16 +96,13 @@ if(isset($_POST['save']))
 										</div>
 									</div>
 								
-								
+
 								<?php 
 								}
 								
 							}
+						
 							?>
 				</div>
 		</section>	
 	</section>	
-	
-<?php
-require_once('../../html_partials/public.footer.php');
-?>

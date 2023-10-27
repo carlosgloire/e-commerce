@@ -11,7 +11,8 @@
     <?php require_once('navbar.php');?>
     <div class="col-span-4 p-6">
         <div class="flex justify-between pr-10">
-            <h1 class="text-xl font-semibold mb-3 ">PRODUITS</h1>    
+            <h1 class="text-xl font-semibold mb-3 ">PRODUITS</h1>
+
                 <p class="text-gray-500">
                 <?php
                         //Requete pour compter les produits
@@ -30,16 +31,22 @@
             </p>  
         </div>
       
-            
-            <div class=" flex  flex-wrap  gap-6">
+            <div>
+                <?php 
+                if(isset($_POST['save']))
+                {
+                    require_once('search_admin.php');
+                }?>
+            </div>
+            <div class=" flex flex-wrap  gap-6 " style="height:500px; overflow:auto;">
                 <?php  
                 
-                            $produit = $bdd->query("SELECT p.id, p.titre,SUBSTRING( p.contenu ,1,22) AS description ,p.filename,p.prix,c.nom FROM produits p,categories c where p.cat_id=c.cat_id"); 
+                            $produit = $bdd->query("SELECT p.id, p.titre,SUBSTRING( p.contenu ,1,27) AS description ,p.filename,p.prix,c.nom FROM produits p,categories c where p.cat_id=c.cat_id"); 
                             if($produit->rowCount() > 0){
                                 while($row = $produit->fetch(PDO::FETCH_ASSOC)){
                                     ?>
                                     
-                                        <div class="shadow-sm p-3 mb-4 border  ">
+                                        <div class="shadow-sm p-3 mb-4 w-[270px] border bg-white">
                                             <div class="flex justify-between">
                                                 <h1 class=" mb-3   text-blue-500">
                                             <?php echo $row['titre']; ?>
@@ -47,7 +54,7 @@
                                             <p class="text-gray-400"><?php echo $row['nom'];?></p>
                                             </div> 
                                             <div class="flex mt-1 gap-10">
-                                                <img class="rounded   w-[270px] h-[270px] object-cover " src="../admin/image_produits_db/<?php echo $row['filename']; ?>">          
+                                                <img class="rounded   w-[250px] h-[250px] object-cover " src="../admin/image_produits_db/<?php echo $row['filename']; ?>">          
                                             </div>
                                             <div>
                                                 <?php

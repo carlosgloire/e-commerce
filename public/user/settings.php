@@ -34,7 +34,7 @@ if(is_post()){
             <div>
 
             </div>
-            <div class="shadow-sm mt-2 p-3 border rounded flex items-center gap-4">
+            <div class="shadow-sm mt-2 p-3 border rounded flex items-center gap-4 bg-white">
                 <?php
                     $requete=$bdd->query("SELECT * FROM users WHERE username = '{$_SESSION['username']}' OR mail='{$_SESSION['username']}'");
                     if($requete->rowCount() > 0){
@@ -78,7 +78,7 @@ if(is_post()){
         <div class='max-w-lg mx-auto py-4 pl-24 pr-24  text-lg rounded-lg mt-[-20px] '>
             <div>
                 <h1 class="text-3xl  font-medium" >Mon profil</h1>
-                <p class="text-gray-400 mb-4 text-sm">Gérez les paramètres de votre profil</p>
+                <p class="text-blue-400 mb-4 text-sm">Gérez les paramètres de votre profil</p>
             </div>
                 <p class="">Votre photo de profil</p>
                 <p class=" items-center">

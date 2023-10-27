@@ -8,7 +8,7 @@
      else{
         $username=htmlspecialchars($_POST['username']);
         $password=htmlspecialchars (sha1($_POST['password']));  
-         $requete = $bdd->prepare("SELECT username FROM users WHERE (mail = :mail OR username= :username ) AND password = :password ");
+         $requete = $bdd->prepare("SELECT username,password FROM users WHERE (mail = :mail OR username= :username ) AND password = :password ");
        //Connecter l'utilisateur avec son nom ou son email
          $requete->bindValue(':mail', $username);
          $requete->bindValue(':username', $username );;
@@ -17,6 +17,7 @@
          if ($user = $requete->fetch(PDO::FETCH_ASSOC)) {
             $_SESSION['user']=$user;
             $_SESSION['username']=$username;
+            $_SESSION['password']=$password;
             header("location:user.php");
             exit;
         }

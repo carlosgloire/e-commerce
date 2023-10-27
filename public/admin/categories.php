@@ -37,7 +37,7 @@ require_once('verificateur.admin.php');
                                    
                                     ?>
                                     <div class="mb-2">
-                                    <div class="bg-white shadow-sm border rounded px-5 py-5">
+                                    <div class="bg-white shadow-sm border rounded p-3">
                                         <a  href="add_product.php?cat_id=<?php  echo $row['cat_id']?>"><?php echo $row['nom'] ?></a>
                                     </div>
                                     </div>
@@ -50,7 +50,7 @@ require_once('verificateur.admin.php');
                             }
                             else {
                             ?>
-                            <p class="text-gray-500"><?php echo 'Aucun categorie ajouté' ?></p>
+                            <p class="text-gray-500"><?php echo 'Aucune categorie ajouté' ?></p>
                             <?php
                             }
                             $bdd = null;
@@ -60,4 +60,3 @@ require_once('verificateur.admin.php');
 </section>
 
 <?php require_once('../../html_partials/footer.html.php'); ?>
-

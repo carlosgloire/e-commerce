@@ -14,8 +14,8 @@ $(document).ready(function() {
     $("#product-link").addClass("bg-gray-300");
   } else if (activePage === "statistics") {
     $("#statistics-link").addClass("bg-gray-300");
-  } else if (activePage === "help") {
-    $("#help-link").addClass("bg-gray-300");
+  } else if (activePage === "product_colors") {
+    $("#product_colors-link").addClass("bg-gray-300");
   } else {
     // Default to Dashboard if no parameter or unknown parameter
     $("#dashboard-link").addClass("bg-gray-300");
@@ -51,14 +51,14 @@ $(document).ready(function() {
     window.location.href = "statistics.php?page=statistics";
   });
 
-  // Handle the click on Help link
-  $("#help-link").on("click", function(e) {
+  // Handle the click on product_colors-link
+  $("#product_colors-link").on("click", function(e) {
     e.preventDefault();
-    $("#help-link").addClass("bg-gray-300");
+    $("#product_colors-link").addClass("bg-gray-300");
     $("#dashboard-link").removeClass("bg-gray-300");
     $("#product-link").removeClass("bg-gray-300");
     $("#statistics-link").removeClass("bg-gray-300");
-    window.location.href = "help.php?page=help";
+    window.location.href = "product_colors.php?page=product_colors";
   });
 });
 </script>

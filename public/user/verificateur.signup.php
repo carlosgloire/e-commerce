@@ -34,6 +34,7 @@
         $_SESSION['flash_message']="Le mail que vous avez saisi est incorrect !!"; 
         
     }
+
     elseif(!preg_match("#^[+]+[0-9]{12}$#",$_POST['phone'])){
 
         $_SESSION['flash_message']="Le numéro que vous avez saisi est incorrect vous devez ecrire le numéro avec indicatif Ex:+243900000000"; 

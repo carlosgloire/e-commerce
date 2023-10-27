@@ -9,6 +9,6 @@
     <link rel='shortcut icon' type="x-icon" href="images/gs_logo.png">
     <title><?= $title ?? 'E-commerce/Admin' ?></title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
+    <script src="../js/autocomplete.js"></script>
 </head>
-<body>
+<body class="bg-gray-100">

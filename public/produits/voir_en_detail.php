@@ -20,8 +20,8 @@
                 <img class="rounded object-cover " src="../admin/image_produits_db/<?php echo $image_produit ?>">          
             </div>
         </div>
-        <div class="w-[50%]">
-           
+        <div class="w-[50%] ">
+         <div class="grid"> 
             <div class="mb-5 flex justify-between">
                 <h1 class=" font-semibold text-xl">
                 <?php echo $titre ?>
@@ -40,7 +40,9 @@
             //Les images similaires au produit 
                     $query = $bdd->query("SELECT * FROM images_similaires  WHERE id=$getid ");
                     if($query->rowCount() > 0){
+                    
                         ?>
+                        <div class="grid">
                            <p class="text-blue-500 "> Couleurs Disponible</p>
                         <?php
                         while($produit = $query->fetch(PDO::FETCH_ASSOC)){
@@ -53,12 +55,13 @@
                                     <?php echo $produit['couleur']?>
                                 </div>
                             </div>
-                           
+                            </div> 
                             <?php
                             }
                             }
                 ?>
             </div>
+        </div>
             <div>
                 <div class="flex gap-1">
                     <p class=" text-xl">
