@@ -38,7 +38,7 @@ require_once('css/pagination.php');
      </p>
 </div>
 <div class="mb-2  w-full">
-        <?php require_once('slider2.php')?>
+        <?php require_once('slider.php')?>
         
 </div>
 <?php
@@ -57,8 +57,8 @@ require_once('css/pagination.php');
                 echo "</section>"; // Close the previous category flex container
             }
             ?>
-                <h2 class='text-xl pl-4 font-semibold mt-4 mb-2 '><?php echo $categoryName ?></h2>
-                <section class=" px-4 flex  flex-wrap  gap-6 " id="content" >
+                <h2 class='text-2xl pl-4 font-semibold mt-4 mb-2 '><?php echo $categoryName ?></h2>
+                <section class=" px-4 flex  flex-wrap  gap-6 " id="content" style="border:1px solid red">
                             <?php
                             $currentCategory = $categoryName;
                         }
@@ -79,13 +79,10 @@ require_once('css/pagination.php');
                                 echo $row['description'] . '...';
                                 ?>
                             </div>
-                            <div class="flex gap-1 ">
-                                <p>
+                            <div>
                                 <?php
-                                echo $row['prix'] ;
+                                echo $row['prix'] . "$";
                                 ?>
-                                </p>
-                                <p class="items-center text-[#ECC440]">$</p>
                             </div>
                             <div class="flex gap-6">
                                 <form action="acheter.php" method="post">

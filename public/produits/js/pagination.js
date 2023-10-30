@@ -1,6 +1,6 @@
 const content = document.getElementById('content');
         const pagination = document.getElementById('pagination');
-        const itemsPerPage = 8; // Change the number of items per page
+        const itemsPerPage = 10; // Change the number of items per page
 
         let currentPage = 1;
 

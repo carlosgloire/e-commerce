@@ -15,9 +15,9 @@
 <?php require_once('menu_bar.php');?>
 <section class="p-6 mx-auto pt-20">
     <div class="flex gap-10 max-w-full">
-        <div class="w-[50%]">
+        <div class="w-[50%] h-1/2">
             <div class="flex mt-1 gap-10">
-                <img class="rounded object-cover " src="../admin/image_produits_db/<?php echo $image_produit ?>">          
+                <img class="rounded w-full h-full  object-cover " src="../admin/image_produits_db/<?php echo $image_produit ?>">          
             </div>
         </div>
         <div class="w-[50%] ">

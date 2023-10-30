@@ -23,7 +23,7 @@
             <div class="slider-container">
                 <div class="overflow-hidden">
                     <div class="flex transition-transform ease-in-out duration-300 transform" id="slider">
-                        <img src="slider/images_categories/vetements.jpg" alt="Image 1" class="">
+                        <img src="slider/images_categories/vetements.jpg" alt="Image 1" class="w-full object-cover">
                         <img src="slider/images_categories/aliments.jpg" alt="Image 2" class="w-full object-cover">
                         <img src="slider/images_categories/multimedia.jpg" alt="Image 3" class="w-full object-cover">
                         <img src="slider/images_categories/evenement.png" alt="Image 4" class="w-full object-cover">
