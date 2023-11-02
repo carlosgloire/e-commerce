@@ -5,6 +5,7 @@ require_once('../../functions.php');
 require_once('../../database/db.php'); 
 require_once ('../../js/flash.php');
 require_once('css/pagination.php');
+
 ?>
 
 
@@ -38,7 +39,7 @@ require_once('css/pagination.php');
      </p>
 </div>
 <div class="mb-2  w-full">
-        <?php require_once('slider.php')?>
+        <?php require_once('slider2.php')?>
         
 </div>
 <?php
@@ -57,14 +58,15 @@ require_once('css/pagination.php');
                 echo "</section>"; // Close the previous category flex container
             }
             ?>
-                <h2 class='text-2xl pl-4 font-semibold mt-4 mb-2 '><?php echo $categoryName ?></h2>
-                <section class=" px-4 flex  flex-wrap  gap-6 " id="content" style="border:1px solid red">
+                <h2 class='text-xl pl-4 font-semibold mt-4 mb-2 '><?php echo $categoryName ?></h2>
+                <section class=" " id="content">
+                    <div class=" px-4     gap-6"  style="overflow: auto; width:100%;display:flex;border:1px solid red">
                             <?php
                             $currentCategory = $categoryName;
                         }
                         ?>
 
-                        <aside class="shadow-sm p-3 mb-4 border rounded bg-white w-[270px]" >
+                        <aside class="shadow-sm p-3 mb-4 border rounded bg-white " style="width: 500px;">
                             <div class="flex justify-between">
                                 <h1 class="mb-3 text-blue-500">
                                     <?php echo $row['titre']; ?>
@@ -79,23 +81,27 @@ require_once('css/pagination.php');
                                 echo $row['description'] . '...';
                                 ?>
                             </div>
-                            <div>
+                            <div class="flex gap-1 ">
+                                <p>
                                 <?php
-                                echo $row['prix'] . "$";
+                                echo $row['prix'] ;
                                 ?>
+                                </p>
+                                <p class="items-center text-blue-500">$</p>
                             </div>
                             <div class="flex gap-6">
                                 <form action="acheter.php" method="post">
-                                    <button class="bg-blue-500 text-white px-2 mb-5 shadow-sm rounded text-center text-base" name="acheter">Acheter</button>
+                                    <button class="bg-blue-400 text-white px-2 mb-5 shadow-sm rounded text-center text-base" name="acheter">Acheter</button>
                                 </form>
                                 <p>
                                     <a class="bg-gray-500 text-white px-2 py-[3px] mb-5 shadow-sm rounded text-center text-base" href="voir_en_detail.php?id=<?php echo $row['id'] ?>">Voir en Detail</a>
                                 </p>
                             </div>
                         </aside>
-                    <?php
-                    }
-                ?>
+                            <?php
+                            }
+                        ?>
+                    </div>
                 </section>
                 <section style="text-align:center;justify-content:center;" class="pagination" id="pagination"></section>  
                 <?php

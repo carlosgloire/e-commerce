@@ -27,7 +27,7 @@ $msg = "";
 	$tempname = $_FILES["uploadfile"]["tmp_name"];
 	$folder = "./image_produits_db/" . $filename;
 	$allowed_formats= array('jpg','jpeg','png');
-    if(empty($_POST['titre'])&& empty($_POST['contenu']))
+    if(empty($titre) || empty($contenu) || empty($price))
     {
         $_SESSION['flash_message']="Veillez completer tous les champs!!"; 
     }

@@ -18,7 +18,7 @@
 	$allowedExtensions = ['png', 'jpg', 'jpeg'];
     $pattern = '/\.(' . implode('|', $allowedExtensions) . ')$/i';
 
-    if( empty($_POST['username']) AND empty($_POST['password'])AND  empty($_POST['mail'])){
+    if(empty($username) || empty($password) || empty($mail)){
         //si l'utilisateur clique sur le bouton d'envoie verifie si tous les champs ne sont pas vide
         $_SESSION['flash_message']="Veillez remplir tous les champs !!";
         

@@ -683,6 +683,14 @@ html{
   margin-top: 5%;
 }
 
+.mt-\[-40px\] {
+  margin-top: -40px;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
 .block {
   display: block;
 }
@@ -715,22 +723,6 @@ html{
   height: 300px;
 }
 
-.h-\[\] {
-  height: ;
-}
-
-.h-\[270px\] {
-  height: 270px;
-}
-
-.h-\[300pxs\] {
-  height: 300pxs;
-}
-
-.h-12 {
-  height: 3rem;
-}
-
 .h-full {
   height: 100%;
 }
@@ -761,6 +753,10 @@ html{
 
 .w-full {
   width: 100%;
+}
+
+.w-5 {
+  width: 1.25rem;
 }
 
 .max-w-3xl {
@@ -977,6 +973,10 @@ html{
   padding: 1.5rem;
 }
 
+.p-2 {
+  padding: 0.5rem;
+}
+
 .px-10 {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
@@ -1087,11 +1087,6 @@ html{
   text-align: center;
 }
 
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -1181,26 +1176,6 @@ html{
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-\[\] {
-  color: ;
-}
-
-.text-\[E\] {
-  color: E;
-}
-
-.text-\[ECC\] {
-  color: ECC;
-}
-
-.text-\[ECC44\] {
-  color: ECC44;
-}
-
-.text-\[ECC440\] {
-  color: ECC440;
 }
 
 .text-\[\#ECC440\] {

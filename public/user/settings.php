@@ -10,12 +10,11 @@ if(is_post()){
     require_once('verificateur.settings.php'); 
 }
 
-
 ?>
 
 <?php require_once('menu_bar_user.php');?>
 <section class="grid grid-cols-5 justify-between">
-    <nav class="bg-white shadow-lg col-span-1 border h-[100vh] pt-16  ">
+    <nav class="bg-white shadow-lg col-span-1 border  pt-16  ">
         <aside class="grid gap-4 mt-6 ">
         <div class="flex items-center mx-auto">
             <p>
@@ -50,12 +49,13 @@ if(is_post()){
                                         </p>
                                         <p class=" items-center">
                                             <?php
-                                            if(! empty($user['filename'])){
+                                            if(($user['filename'])!=' '){
                                                 ?>
                                                     <img class="rounded-[60px] border " src="user_images/<?php echo $user['filename']; ?>" width="40px">
                                                 <?php
                                             }
                                             else{
+                                                //Photo de profil par defaut
                                                 ?>
                                                     <img class="rounded-[50px] border " src="./images/user.PNG" alt="Default image user" title="Ajoutez une photo de profil pour permettre une identification simple" width="40px">
                                                 <?php
@@ -75,28 +75,60 @@ if(is_post()){
             </div>
         </div>
         
-        <div class='max-w-lg mx-auto py-4 pl-24 pr-24  text-lg rounded-lg mt-[-20px] '>
+        <div class='max-w-lg mx-auto py-4 pl-24 pr-24  text-lg rounded-lg mt-[-40px] '>
             <div>
                 <h1 class="text-3xl  font-medium" >Mon profil</h1>
                 <p class="text-blue-400 mb-4 text-sm">Gérez les paramètres de votre profil</p>
             </div>
+            <form action="" method='post' class='mb-2' enctype="multipart/form-data">
                 <p class="">Votre photo de profil</p>
                 <p class=" items-center">
                     <?php
-                        if(! empty($user['filename'])){
+                        //Photo de profil de l'utilisateur
+                        if(($user['filename'])!=' ')
+                        {
+                        
+                            require_once('photo.php');
                         ?>
-                            <img class="rounded-[60px] border " src="user_images/<?php echo $user['filename']; ?>" width="100px">
+                            <div class="user">
+                                <div  class="custom-file-input">
+                                    <input  name="uploadfile" type="file" enctype="multipart/form-data" id="fileInput" class="hidden">
+                                    <label  for="fileInput">
+                                    <div class="text">
+                                        <p class="flex gap-2">
+                                            <img class="rounded-[60px] border " src="user_images/<?php echo $user['filename']; ?>" width="100px">
+                                            <a  href="delete_profil.php" style="margin-top: 70px;">
+                                                <i class="fa-solid fa-trash text-blue-500" title="Supprimer la photo de profil"></i>
+                                            </a>
+                                        </p> 
+                                    </div>
+                                    </label>
+                                </div>
+                            </div>
                         <?php
+                        
                         }
                         else{
-                        ?>
-                                <img class="rounded-[50px] border " src="./images/user.PNG" alt="Default image user" title="Ajoutez une photo de profil pour permettre une identification simple" width="100px">
+                            //Photo de profil par defaut
+                            require_once('photo.php');
+                        ?> 
+                             <div class="user">
+                                <div  class="custom-file-input">
+                                    <input  name="uploadfile" type="file" enctype="multipart/form-data" id="fileInput" class="hidden">
+                                    <label  for="fileInput">
+                                    <div class="text">
+                                        <p> 
+                                            <img class="rounded-[50px] border " src="./images/user.PNG" alt="Default image user" title="Ajoutez une photo de profil pour permettre une identification simple" width="100px">
+                                        </p>
+                                    </div>
+                                    </label>
+                                </div>
+                            </div>
                         <?php
                         }
                     ?>
                 </p>
-               
-            <form action="" method='post' class='mb-2' enctype="multipart/form-data">
+            
                 <div class='grid'>
                     <label for="username">Noms d'utilisateur</label>
                     <input class="rounded mb-2 w-full border-[1px] text-gray-400 border-gray-400 px-3" type="text" name='username' value='<?php  echo $user['username']; ?>'>
@@ -109,10 +141,7 @@ if(is_post()){
                     <label for="numero">Numéro de Télephone</label>
                     <input class="rounded mb-2 w-full border-[1px] text-gray-400 border-gray-400 px-3" type="phone" name="phone" value="<?php echo $user['phone']?>">
                 </div>
-                <div>
-                    <label for="photo">Photo de profil</label>
-                    <input class="rounded mb-2 w-full border-[1px] text-gray-400 border-gray-400 px-3" name="uploadfile" type="file" enctype="multipart/form-data" >
-                </div>
+                
                 
                 <input class='bg-gray-500  text-white mt-2 p-x-20 w-full rounded font-medium hover:bg-gray-700 ' type="submit" name='modify' value='Sauvegarder'>
                 
@@ -131,11 +160,9 @@ if(is_post()){
 <?php
         }
         }
-        
-        
 ?>
 
 </section>
    
-                    
+                 
 <?php  require_once('../../html_partials/public.footer.php');?>

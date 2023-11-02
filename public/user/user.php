@@ -44,7 +44,7 @@ require_once('css/pagination.php');
                                 </p>
                                 <p class=" items-center">
                                     <?php
-                                       if(! empty($user['filename'])){
+                                       if(($user['filename'])!=' '){
                                         ?>
                                             <img class="rounded-[60px] border " src="user_images/<?php echo $user['filename']; ?>" width="40px">
                                         <?php

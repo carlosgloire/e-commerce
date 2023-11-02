@@ -1,7 +1,7 @@
 <?php
  $username = isset($_POST['username']) ? $_POST['username'] : '';
  // cryptage du mot de passe
- if( empty($_POST['username']) && empty($_POST['password'])){
+ if( empty($_POST['username']) || empty($_POST['password'])){
  //si l'utilisateur clique sur le bouton d'envoie verifie si tous les champs ne sont pas vide
      $_SESSION['flash_message']="Veillez Remplir tous les champs !!"; 
 }

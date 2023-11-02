@@ -11,7 +11,7 @@ require_once('../../database/db.php');
             <a class="pr-8" href="home.php">ACCEUIL</a>
             <a class="pr-8" href="#">CATEGORIES</a>
             <a class="pr-8" href="#">APROPOS</a>
-            <a  class="pr-8 text-blue-500" href="../user/login.php">INSCRIPTION <span class="text-black">ou</span> CONNEXION</a>
+            <a  class="pr-8 text-blue-400" href="../user/login.php">INSCRIPTION <span class="text-black">ou</span> CONNEXION</a>
         </div>
         
          <div class="flex ">
