@@ -12,8 +12,15 @@
     }
    
     ?>
-   
-<div class='max-w-lg mx-auto p-12 pl-24 pr-24 bg-white text-lg rounded-lg shadow-lg text-gray-950 mt-[3%]'>
+     <?php if(isset($_POST['add']) && ! empty($_SESSION['flash_message']))
+    {
+    ?>  <div class="text-center mt-[3%] mb-1">
+            <div id='flash-message' class='pl-4 leading-5 shadow-lg  rounded bg-white text-red-500 text-[16px] transition-opacity duration-500 ease-in max-w-lg mx-auto '><?php echo $_SESSION['flash_message']?></div>
+        </div>
+    <?php
+    }
+    ?>
+<div class='max-w-lg mx-auto p-12 pl-24 pr-24 bg-white text-lg rounded-lg shadow-lg text-gray-950 '>
     <h1 class=" text-3xl mb-4 font-medium" > Ajouter un produit</h1>
     <form action="" method='post' enctype="multipart/form-data" class='mb-2'>
         <div class='grid'>
@@ -50,11 +57,5 @@
         <input class='bg-gray-700  text-white p-x-20 w-full rounded font-medium hover:bg-gray-900 ' type="submit" name='add' value='Ajouter'>
     </form>
 </div>
-<?php if(isset($_POST['add']) && ! empty($_SESSION['flash_message']))
-    {
-    ?>
-        <div id='flash-message' class='pl-4 leading-5 shadow-lg mt-1 rounded bg-white text-red-500 text-[16px] transition-opacity duration-500 ease-in max-w-lg mx-auto '><?php echo $_SESSION['flash_message']?></div>
-    <?php
-    }
-    ?> 
+    
 <?php require_once('../../html_partials/footer.html.php'); ?>

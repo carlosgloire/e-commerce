@@ -26,7 +26,7 @@ const content = document.getElementById('content');
                 li.addEventListener('click', () => {
                     currentPage = i;
                     showPage(i);
-                    updatePagination();
+                     updatePagination();
                 });
 
                 if (i === currentPage) {

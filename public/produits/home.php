@@ -35,7 +35,7 @@ require_once('css/pagination.php');
 
 <?php
 // SQL query to select all categories and their associated products
-$stmt = $bdd->query("SELECT c.cat_id, c.nom AS category_name, p.id, p.titre, SUBSTRING(p.contenu, 1, 27) AS description, p.filename, p.prix FROM produits p LEFT JOIN categories c ON c.cat_id = p.cat_id ORDER BY c.cat_id, p.id");
+$stmt = $bdd->query("SELECT c.cat_id, c.nom AS category_name, p.id, p.titre, SUBSTRING(p.contenu, 1, 27) AS description, p.filename, p.prix FROM produits p LEFT JOIN categories c ON c.cat_id = p.cat_id ORDER BY category_name ASC");
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $currentCategory = null;
@@ -57,7 +57,7 @@ foreach ($result as $row) {
             displayCategoryPagination($currentCategory);
         }
         echo "<h2 class='text-xl pl-4 font-semibold mt-4 mb-2'>$categoryName</h2>";
-        echo "<section class='px-4 flex flex-wrap gap-6' id='content$categoryName'>";
+        echo "<section class='px-4 flex  gap-6' id='content$categoryName'>";
         $currentCategory = $categoryName;
     }
 
@@ -65,7 +65,7 @@ foreach ($result as $row) {
 }
 
 echo "</section>"; // Close the last category flex container
-displayCategoryPagination($currentCategory);
+displayCategoryPagination($currentCategory);//Displaying the last pagination
 ?>
 
 <section>
@@ -103,7 +103,14 @@ function updatePagination(categoryName, currentPage) {
         const li = document.createElement('aside');
         li.textContent = i;
         li.addEventListener('click', () => {
+            // Remove the 'active' class from the previously active element
+            const prevActive = pagination.querySelector('.active');
+            if (prevActive) {
+                prevActive.classList.remove('active');
+            }
+            
             showPage(categoryName, i);
+            li.classList.add('active');
         });
 
         if (i === currentPage) {
@@ -120,6 +127,7 @@ function updatePagination(categoryName, currentPage) {
     updatePagination('<?php echo $categoryName; ?>', 1);
 <?php } ?>
 </script>
+
 
 <?php require_once('../../html_partials/public.footer.php'); ?>
 
