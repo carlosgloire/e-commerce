@@ -49,7 +49,7 @@ if(is_post()){
                                         </p>
                                         <p class=" items-center">
                                             <?php
-                                            if(($user['filename'])!=' '){
+                                            if(($user['filename'])!=' ' AND ! empty($user['filename'])){
                                                 ?>
                                                     <img class="rounded-[60px] border " src="user_images/<?php echo $user['filename']; ?>" width="40px">
                                                 <?php
@@ -85,7 +85,7 @@ if(is_post()){
                 <p class=" items-center">
                     <?php
                         //Photo de profil de l'utilisateur
-                        if(($user['filename'])!=' ')
+                        if(($user['filename'])!=' ' AND ! empty($user['filename']))
                         {
                         
                             require_once('photo.php');

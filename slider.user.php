@@ -1,5 +1,4 @@
 <?php
- require_once('../../html_partials/public.header.php');
 require_once('../../database/db.php');
 require_once('slider_css.php');
 ?>
@@ -23,5 +22,4 @@ require_once('slider_css.php');
         </div>
     </div>
     <script src="js/slider.js"></script>
-<?php require_once('../../html_partials/public.footer.php');
-?>
+

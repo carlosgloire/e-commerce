@@ -25,7 +25,7 @@
   color: white;
 }
 .pagination aside.active {
-    background-color: #0074D9;
+    background-color: #3498db;
     color: #fff;
 }
     </style>
