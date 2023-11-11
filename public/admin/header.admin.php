@@ -1,8 +1,5 @@
 
 <?php 
-$title='Menu';
-require_once('../../html_partials/public.header.php');
-require_once('../../database/db.php');
 
 ?>
     <header id="header" class="flex bg-white justify-between px-20 py-4 shadow-sm mb-1 border">
@@ -30,5 +27,5 @@ require_once('../../database/db.php');
      </header>
 
      <?php    
-     require_once('../../html_partials/public.footer.php');
+   
 ?>

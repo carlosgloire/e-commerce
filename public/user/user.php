@@ -1,18 +1,20 @@
 <?php 
-    $title = 'Accueil';
-    require_once('../../html_partials/public.header.php');
-    require_once('../../database/db.php'); 
-    require_once('../../js/flash.php');
-    require_once('css/pagination.php');
-    require_once('../../functions.php');
+$title='Home';
+require_once('../../html_partials/public.header.php');
+require_once('../../functions.php');
+require_once('../../database/db.php'); 
+require_once ('../../js/flash.php');
+require_once('verificateur.login.php');
+require_once('verificateur.user.php');
+require_once('../produits/css/pagination.php');
+
+
 ?>
 
-<div >
-    <?php require_once('menu_bar.php');?>
-</div>
+<?php require_once('menu_bar_user.php');?>
 <div class="pt-16"></div>
 <div class=" w-full ">
-    <?php  require('slider2.php')?>
+    <?php  require('../produits/slider2.php')?>
 </div>
 <div class="flex justify-between pr-10 ">
     <p></p>
@@ -68,12 +70,12 @@
 <?php require_once('../admin/popup/script.php')?>
 <?php require_once('../admin/popup/css_popup.php')?>
 <section>
-    <?php require_once('comments_users.php') ?>
+    <?php require_once('../produits/comments_users.php') ?>
 </section>
-<script src="js/slider.js"></script>
+<script src="../produits/js/slider.js"></script>
 <script src="../user/popup/script.js"></script>
 <?php 
-    require_once('pagination.php');
+    require_once('../produits/pagination.php');
     require_once('../../html_partials/public.footer.php');
 ?>
 

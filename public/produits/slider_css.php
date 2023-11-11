@@ -11,6 +11,7 @@
 }
 
 .slider img {
+   
     object-fit: cover;
     height: 100%;
     width: 100%;
@@ -26,8 +27,9 @@
 }
 
 .suivant, .precedent {
+    display: none;
     color: #fff;
-    font-size: 6rem;
+    font-size: 4rem;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -41,4 +43,8 @@
 .precedent {
     left: 1rem;
 }
+.slider:hover .suivant, .slider:hover .precedent {
+   display: block;
+}
+
 </style>

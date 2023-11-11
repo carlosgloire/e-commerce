@@ -84,35 +84,66 @@ function slugify_blog_page($content) {
 function displayProduct($row) {
     ?>
       <aside class="shadow-sm p-3  border rounded bg-white w-[270px]" >
-            <div class="flex justify-between">
-                <h1 class="mb-3 text-blue-500">
-                    <?php echo $row['titre']; ?>
-                </h1>
-                <p class="text-gray-400"><?php echo $row['category_name']; ?></p>
-            </div>
-            <div class="flex mt-1 gap-10">
-                <img class="rounded w-[250px] h-[250px] object-cover" src="../admin/image_produits_db/<?php echo $row['filename']; ?>">
+            <h1 class="mb-3 text-[#1d2238]">
+                <?php echo $row['titre']; ?>
+            </h1>
+            <div class=" mb-1 ">
+                <a  href="voir_en_detail.php?id=<?php echo $row['id'] ?>" >                
+                    <img class=" w-[250px] h-[250px] object-cover" src="../admin/image_produits_db/<?php echo $row['filename']; ?>">
+                </a>
             </div>
             <div>
                 <?php
                 echo $row['description'] . '...';
                 ?>
             </div>
-            <div class="flex gap-1 ">
-                <p>
+            <div class="flex gap-1 text-medium font-bold">
+                <p style="color:#1d2238;">
                 <?php
-                echo $row['prix'] ;
+                echo $row['prix'].' '.'$' ;
                 ?>
                 </p>
-                <p class="items-center text-green-500">$</p>
             </div>
-            <div class="flex gap-6 py-2">
-                <form action="acheter.php" method="post">
-                    <button class="bg-blue-500 text-white px-2  shadow-sm rounded text-center text-base" name="acheter">Acheter</button>
-                </form>
-                <p>
-                    <a class="bg-gray-500 text-white px-2 py-[3px]  shadow-sm rounded text-center text-base" href="voir_en_detail.php?id=<?php echo $row['id'] ?>">Voir en Detail</a>
+            <div class="flex gap-6  items-center">
+                    <a href="#"   class="bg-[#010e27] text-white px-4  shadow-sm  text-center text-base delete"style="border: 1px solid #010e27;"  name="acheter">Acheter</a>
+                    <?php
+                        //Appelle a la fonction pour afficher un popup 
+                            popup_window_not_connected_user();
+                    ?>
+                <a class="text-[#1d2238]  px-2 hover:bg-[#010e27]  hover:text-white  shadow-sm text-center text-base" href="voir_en_detail.php?id=<?php echo $row['id'] ?>" style="border: 1px solid #1d2238;">Voir en Detail</a>
+            </div>
+        </aside>
+    <?php
+}
+//Function to display products
+function displayProduct_user($row) {
+    ?>
+      <aside class="shadow-sm p-3  border rounded bg-white w-[270px]" >
+      <h1 class="mb-3 text-[#1d2238]">
+                <?php echo $row['titre']; ?>
+            </h1>
+            <div class=" mb-1 ">
+                <a  href="../user/voir_en_detail.php?id=<?php echo $row['id'] ?>" >                
+                    <img class=" w-[250px] h-[250px] object-cover" src="../admin/image_produits_db/<?php echo $row['filename']; ?>">
+                </a>
+            </div>
+            <div>
+                <?php
+                echo $row['description'] . '...';
+                ?>
+            </div>
+            <div class="flex gap-1 text-medium font-bold">
+                <p style="color:#1d2238;">
+                <?php
+                echo $row['prix'].' '.'$' ;
+                ?>
                 </p>
+            </div>
+            <div class="flex gap-6  items-center">
+                <form action="acheter.php" method="post">
+                    <button class="bg-[#010e27] text-white px-4  shadow-sm  text-center text-base" name="acheter" style="border: 1px solid #010e27;">Acheter</button>
+                </form>
+                <a class="text-[#1d2238]  px-2 hover:bg-[#010e27]  hover:text-white  shadow-sm text-center text-base" href="../user/voir_en_detail.php?id=<?php echo $row['id'] ?>" style="border: 1px solid #1d2238;">Voir en Detail</a>
             </div>
         </aside>
     <?php
@@ -120,4 +151,30 @@ function displayProduct($row) {
 //Function to display pagination per each category
 function displayCategoryPagination($categoryName) {
     echo "<section class='pagination' id='pagination$categoryName'></section>";
+}
+function popup_window_delete_product($row){
+    ?>
+    <div class="popup">
+        <div class="popup-content">
+            <p class="warning">Voulez-vous supprimer << <?php echo $row['titre']; ?>>></p>
+            <div>
+                <button class="close" id="closePopup">Annuler</button>
+                <a href="delete.product.php?id=<?php echo $row['id']?>" id="deleteProduct">Supprimer</a>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+function popup_window_not_connected_user(){
+    ?>
+        <div class="popup">
+            <div class="popup-content">
+                <p class="warning">Pour acheter vous devez d'abbord vous connecter</p>
+                <div>
+                    <button class="close" id="closePopup">Annuler</button>
+                    <a href="../user/login.php" id="deleteProduct">Connexion</a>
+                </div>
+            </div>
+        </div>
+    <?php
 }

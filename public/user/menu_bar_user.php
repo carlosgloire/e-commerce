@@ -1,33 +1,44 @@
 
-<?php 
-
-require_once('../../html_partials/public.header.php');
-require_once('../../database/db.php');
-
-?>
-    <header id="header" class="flex bg-white justify-between pl-10 py-4 pr-4 shadow-sm mb-1 border w-full" style="z-index: 10;position:fixed;">
-        <a href="user.php"><img src="../produits/images/gs_logo.png" alt="logo glory shop" width="30px" title="Acceuil"></a>
-        <div class="text-black gap-20 font-semibold">
-            <a class="pr-8" href="../produits/user.php">ACCEUIL</a>
-            <a class="pr-8" href="#">CATEGORIES</a>
-            <a class="pr-8" href="#">APROPOS</a>
-            
-        </div>
+<header id="header" class="flex bg-[#010e27] justify-between pl-10 py-4 pr-4   w-full" style="z-index: 10;position:fixed;">
+    <a href="home.php"><img src="images/gs_logo.png" alt="logo glory shop" width="30px" title="Acceuil"></a>
+    <div class="text-white gap-10 flex items-center">
+        <a class="pr-8" href="user.php">ACCEUIL</a>
+        <a class="pr-8" href="#">CATEGORIES</a>
+        <a class="pr-8" href="#">APROPOS</a>
+        <a href="../user/settings.php">
+        <?php
+            // user profile
+            $requete=$bdd->query("SELECT * FROM users WHERE username = '{$_SESSION['username']}' OR mail='{$_SESSION['username']}' AND password ='{$_SESSION['password']}'");
+            if($requete->rowCount() > 0){
+                
+                while($user = $requete->fetch(PDO::FETCH_ASSOC)){
+                ?>  
         
-         <div class="flex ">
-         <form class="form-horizontal" action="search_2.php" method="post">
-            <div class="flex gap-3">
-                <input type="text" class="rounded  border-[1px] border-gray-500 bg-gray-100  px-3" name="search"  placeholder="Recherchez ici">
-                <button type="submit" name="save" class="bg-blue-500 text-white px-2 mb-5 shadow-sm rounded text-center text-base hidden" >Submit</button>   
-            </div>
-         </form>
-            <p class="pl-4"><img src="../produits/images/cart.png" alt="image cart" width="30px"></p>
-            <p class="">2 Produits</p>
-            <p class="pl-3">7200</p>
-
-         </div>
-     </header>
-
-     <?php    
-     require_once('../../html_partials/public.footer.php');
-?>
+                <p class=" items-center">
+                    <?php
+                        if(($user['filename'])!=' ' AND ! empty($user['filename'])){
+                        ?>
+                            <img class="rounded-[60px] border " src="user_images/<?php echo $user['filename']; ?>" width="40px">
+                        <?php
+                        }
+                        else{
+                        ?>
+                            <img src="images/user.PNG" class="rounded-[50%] border "  alt="Default image user" title="Ajoutez une photo de profil pour permettre une identification simple" width="35px">
+                        <?php
+                        }
+                    ?>
+                </p>   
+                <?php
+                }
+            }
+        ?> 
+        </a>
+    </div>
+    
+    <div class="flex items-center">
+        <img src="images/search.png" alt="search icon" width="30px">
+        <p class="pl-4"><img src="images/cart2.jpg" alt="image cart" width="30px"></p>
+        <p class="text-white">2 Produits</p>
+        <p class="pl-3 font-bold text-white">7200 $</p>
+    </div>
+</header>

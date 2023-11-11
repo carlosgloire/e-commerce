@@ -80,7 +80,7 @@ elseif($_POST['password'] != $_POST['password2'])
         } 
         $query = $bdd->prepare ('INSERT INTO users (username,mail,phone,filename,password) VALUES(?,?,?,?,?)');
         $query->execute(array($username,$mail,$telephone,$filename,$password));
-        echo '<script>alert("Utilisateur ajouté avec succès");</script>';
+        echo '<script>alert("Votre compte a eté crée avec succès");</script>';
         echo '<script>window.location.href="signup.php";</script>';
         exit;
     }

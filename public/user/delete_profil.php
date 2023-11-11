@@ -7,9 +7,8 @@ require_once('../../database/db.php');
  $user_profile=['filename'];
  if($recup_id->rowCount() > 0){
      $delete_product = $bdd->query("UPDATE users SET filename=' ' WHERE user_id = '{$id}' ");
-     echo '<script>alert("Photo supprimé avec succès");</script>';
-     echo '<script>window.location.href="settings.php";</script>';
-     exit;
+     $_SESSION['flash_message']="Photo de profil supprimé avec succès !!";
+     header('location:settings.php');
 }
 else{
  echo '<script>alert("Aucune photo trouvée");</script>';

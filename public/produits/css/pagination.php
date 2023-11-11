@@ -12,7 +12,7 @@
   padding: 5px 10px;
   border: 1px solid #ccc;
   cursor: pointer;
-  color: #3498db;
+  color:  #010e27;
   text-decoration: none;
   border-radius: 5px;
   display: flex;
@@ -21,11 +21,11 @@
 }
 
 .pagination aside:hover {
-  background-color:#3498db;
+  background-color: #010e27;
   color: white;
 }
 .pagination aside.active {
-    background-color: #3498db;
+    background-color: #010e27;
     color: #fff;
 }
     </style>

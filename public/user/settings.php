@@ -14,7 +14,7 @@ if(is_post()){
 
 <?php require_once('menu_bar_user.php');?>
 <section class="grid grid-cols-5 justify-between">
-    <nav class="bg-white shadow-lg col-span-1 border  pt-16  ">
+    <nav class=" shadow-lg col-span-1 border  pt-16 h-[100vh] bg-white">
         <aside class="grid gap-4 mt-6 ">
         <div class="flex items-center mx-auto">
             <p>
@@ -51,13 +51,13 @@ if(is_post()){
                                             <?php
                                             if(($user['filename'])!=' ' AND ! empty($user['filename'])){
                                                 ?>
-                                                    <img class="rounded-[60px] border " src="user_images/<?php echo $user['filename']; ?>" width="40px">
+                                                    <img class="rounded-[50%] border " src="user_images/<?php echo $user['filename']; ?>" width="40px" height="40px">
                                                 <?php
                                             }
                                             else{
                                                 //Photo de profil par defaut
                                                 ?>
-                                                    <img class="rounded-[50px] border " src="./images/user.PNG" alt="Default image user" title="Ajoutez une photo de profil pour permettre une identification simple" width="40px">
+                                                    <img class="rounded-[50%] border " src="./images/user.PNG" alt="Default image user" title="Ajoutez une photo de profil pour permettre une identification simple" width="40px" height="40px">
                                                 <?php
                                             }
                                             ?>
@@ -82,29 +82,31 @@ if(is_post()){
             </div>
             <form action="" method='post' class='mb-2' enctype="multipart/form-data">
                 <p class="">Votre photo de profil</p>
-                <p class=" items-center">
+                <div class=" items-center">
                     <?php
                         //Photo de profil de l'utilisateur
                         if(($user['filename'])!=' ' AND ! empty($user['filename']))
                         {
                         
                             require_once('photo.php');
-                        ?>
+                        ?>  
                             <div class="user">
                                 <div  class="custom-file-input">
                                     <input  name="uploadfile" type="file" enctype="multipart/form-data" id="fileInput" class="hidden">
                                     <label  for="fileInput">
                                     <div class="text">
                                         <p class="flex gap-2">
-                                            <img class="rounded-[60px] border " src="user_images/<?php echo $user['filename']; ?>" width="100px">
-                                            <a  href="delete_profil.php" style="margin-top: 70px;">
-                                                <i class="fa-solid fa-trash text-blue-500" title="Supprimer la photo de profil"></i>
-                                            </a>
+                                            <img class="rounded-[50%] border " src="user_images/<?php echo $user['filename']; ?>" width="100px" height="100px">
                                         </p> 
                                     </div>
                                     </label>
                                 </div>
                             </div>
+                            <a id="openPopup" style="margin-top: 5px;">
+                                <i class="fa-solid fa-trash text-blue-500" title="Supprimer la photo de profil"></i>
+                            </a>
+                            <script src="popup/script.js"></script>
+                            <?php require_once('popup/popup_deleteuserprofile.html')?>
                         <?php
                         
                         }
@@ -118,7 +120,7 @@ if(is_post()){
                                     <label  for="fileInput">
                                     <div class="text">
                                         <p> 
-                                            <img class="rounded-[50px] border " src="./images/user.PNG" alt="Default image user" title="Ajoutez une photo de profil pour permettre une identification simple" width="100px">
+                                            <img class="rounded-[50%] border " src="./images/user.PNG" alt="Default image user" title="Ajoutez une photo de profil pour permettre une identification simple" width="100px" height="100px">
                                         </p>
                                     </div>
                                     </label>
@@ -127,7 +129,7 @@ if(is_post()){
                         <?php
                         }
                     ?>
-                </p>
+                </div>
             
                 <div class='grid'>
                     <label for="username">Noms d'utilisateur</label>

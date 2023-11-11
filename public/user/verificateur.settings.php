@@ -26,7 +26,7 @@ if (isset($_POST['modify'])) {
     } else {
         $requete = $bdd->query("SELECT filename FROM users WHERE username = '{$_SESSION['username']}' OR mail = '{$_SESSION['username']}'");
         $photo = $requete->fetch();
-        $filename = $photo['filename']; // If no file is uploaded, keep the previous file name (or set it to an empty string)
+        $filename = $photo['filename']; // If no file is uploaded, keep the previous file name 
     }
 
     // Check for empty fields
