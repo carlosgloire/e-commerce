@@ -11,7 +11,7 @@
 }
 
 .slider img {
-   
+    box-shadow: 0px 0px 4px 0px gray;
     object-fit: cover;
     height: 100%;
     width: 100%;

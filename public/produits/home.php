@@ -12,24 +12,31 @@
 </div>
 <div class="pt-16"></div>
 <div class=" w-full ">
-    <?php  require('slider2.php')?>
+    <?php  require('slider2.php');?>
+ 
 </div>
 <div class="flex justify-between pr-10 ">
-    <p></p>
-    <h1 class="ml-10 text-xl mt-4 mb-4 font-medium">NOS PRODUITS</h1> 
+    <div></div>
+    <h1 class="ml-10 text-xl mt-4  font-medium">NOS PRODUITS</h1> 
     <?php if(isset($_POST['acheter']) && !empty($_SESSION['flash_message'])) { ?>
-        <div id='flash-message' class='pl-4 leading-5 shadow-lg mt-1 rounded bg-white text-red-500 text-[16px] transition-opacity duration-500 ease-in max-w-lg mx-auto '><?php echo $_SESSION['flash_message']?></div>
-    <?php } ?>   
-    <p class="text-gray-500">
-        <?php
-        // Requête pour compter le nombre de produits
-        $requete = $bdd->prepare("SELECT COUNT(id) AS nombre FROM produits");
-        $requete->execute();
-        while ($nombre = $requete->fetch()) {
-            echo $nombre['nombre'] . ($nombre['nombre'] < 1 ? ' produit publié' : ' produits publiés');
-        }
-        ?>
-    </p>
+        <div id='flash-message' class='pl-4 leading-5 shadow-lg mt-1 rounded bg-white text-red-500 text-[16px] transition-opacity duration-500 ease-in max-w-lg mx-auto '><?php echo $_SESSION['flash_message']?>
+    </div>
+    <?php } ?>
+
+    <p id="counter" class="text-gray-500 mt-4">
+    <?php
+    // Requête pour compter le nombre de produits
+    $requete = $bdd->prepare("SELECT COUNT(id) AS nombre FROM produits");
+    $requete->execute();
+    $nombre = $requete->fetchColumn();
+
+    echo '<span id="countValue" data-max="' . $nombre . '">' . $nombre . '</span> Produits publiés';
+    ?>
+   </p>
+
+
+
+
 </div>
 
 <?php
@@ -54,7 +61,7 @@
                 echo "</section>"; // Close the previous category flex container
                 displayCategoryPagination($currentCategory);
             }
-            echo "<h2 class='text-xl  pl-4 font-medium mt-4 mb-2'>$categoryName</h2>";
+            echo "<h2 class='text-xl pl-4 font-semibold mt-4 mb-2'>$categoryName</h2>";
             echo "<section class='px-4 flex flex-wrap  gap-6' id='content$categoryName'>";
             $currentCategory = $categoryName;
         }
@@ -73,6 +80,7 @@
 <script src="js/slider.js"></script>
 <script src="../user/popup/script.js"></script>
 <?php 
+    require_once('js/counter.php');
     require_once('pagination.php');
     require_once('../../html_partials/public.footer.php');
 ?>

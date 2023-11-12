@@ -7,7 +7,7 @@ require_once('../../database/db.php');
 ?>
     <header id="header" class="flex bg-[#010e27] justify-between pl-10 py-4 pr-4   w-full" style="z-index: 10;position:fixed;">
         <a href="home.php"><img src="images/gs_logo.png" alt="logo glory shop" width="30px" title="Acceuil"></a>
-        <div class="text-white gap-10 flex items-center">
+        <div class="text-white gap-8 flex items-center">
             <a class="pr-8" href="home.php">ACCEUIL</a>
             <a class="pr-8" href="#">CATEGORIES</a>
             <a class="pr-8" href="#">APROPOS</a>

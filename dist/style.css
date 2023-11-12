@@ -614,6 +614,10 @@ html{
   top: 0.25rem;
 }
 
+.z-0 {
+  z-index: 0;
+}
+
 .col-span-1 {
   grid-column: span 1 / span 1;
 }
@@ -705,6 +709,10 @@ html{
 
 .mb-16 {
   margin-bottom: 4rem;
+}
+
+.ml-12 {
+  margin-left: 3rem;
 }
 
 .block {
@@ -867,6 +875,10 @@ html{
 
 .gap-0 {
   gap: 0px;
+}
+
+.gap-8 {
+  gap: 2rem;
 }
 
 .overflow-hidden {
@@ -1053,6 +1065,10 @@ html{
   padding: 1.5rem;
 }
 
+.p-\[\FFFD\FFFD\FFFD 0\FFFDv\FFFD\19\FFFD\.G\FFFD\#\FFFD\1B\FFFD\FFFD\FFFD\267\/\F\18\] {
+  padding: ���0�v��.G�#����ɧ/;
+}
+
 .px-10 {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
@@ -1185,6 +1201,11 @@ html{
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .font-medium {
@@ -1344,6 +1365,10 @@ html{
 
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.\[r\:\FFFD\FFFDw\FFFDU\] {
+  r: ��w�U;
 }
 
 .hover\:bg-gray-300:hover {
