@@ -6,14 +6,13 @@ require_once('../../database/db.php');
 
 ?>
     <header id="header" class="flex bg-[#010e27] justify-between pl-10 py-4 pr-4   w-full" style="z-index: 10;position:fixed;">
-        <a href="home.php"><img src="images/gs_logo.png" alt="logo glory shop" width="30px" title="Acceuil"></a>
+        <a href="home.php"><img src="images/Glory-shop.png" alt="logo glory shop" width="30px" title="Acceuil"></a>
         <div class="text-white gap-8 flex items-center">
             <a class="pr-8" href="home.php">ACCEUIL</a>
             <a class="pr-8" href="#">CATEGORIES</a>
             <a class="pr-8" href="#">APROPOS</a>
             <a href="../user/login.php">
-                <img src="images/user_icon.png"   alt="Default image user" title="Connexion ou Inscription" width="35px"> 
-            </a>
+            <img src="images/user_icon.png"   alt="Default image user" title="Connexion ou Inscription" width="35px">            </a>
         </div>
         
          <div class="flex items-center">

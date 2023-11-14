@@ -11,10 +11,10 @@ if(is_post()){
 }
 
 ?>
-
+ <?php require_once('popup/css_popupdelete_userprofile.php')?>
 <?php require_once('menu_bar_user.php');?>
-<section class="grid grid-cols-5 justify-between">
-    <nav class=" shadow-lg col-span-1 border  pt-16 h-[100vh] bg-white">
+<section class=" flex ">
+    <nav class=" shadow-lg p-20 border  pt-16 h-[100vh] bg-white">
         <aside class="grid gap-4 mt-6 ">
         <div class="flex items-center mx-auto">
             <p>
@@ -27,55 +27,17 @@ if(is_post()){
         </div>
         </aside>   
     </nav>
-    <section class="col-span-4">
+    <section class="">
             
-        <div class="justify-between flex pt-16">
-            <div>
-
-            </div>
-            <div class="shadow-sm mt-2 p-3 border rounded flex items-center gap-4 bg-white">
-                <?php
+        <?php
                     $requete=$bdd->query("SELECT * FROM users WHERE username = '{$_SESSION['username']}' OR mail='{$_SESSION['username']}'");
                     if($requete->rowCount() > 0){
                         
                         while($user = $requete->fetch(PDO::FETCH_ASSOC)){
                             $id=$user['user_id'];
-                        ?>      
-                                <div>
-                                
-                                    <div class="flex justify-between gap-4">
-                                        <p>
-                                            <?php echo $user['username']?>
-                                        </p>
-                                        <p class=" items-center">
-                                            <?php
-                                            if(($user['filename'])!=' ' AND ! empty($user['filename'])){
-                                                ?>
-                                                    <img class="rounded-[50%] border " src="user_images/<?php echo $user['filename']; ?>" width="40px" height="40px">
-                                                <?php
-                                            }
-                                            else{
-                                                //Photo de profil par defaut
-                                                ?>
-                                                    <img class="rounded-[50%] border " src="./images/user.PNG" alt="Default image user" title="Ajoutez une photo de profil pour permettre une identification simple" width="40px" height="40px">
-                                                <?php
-                                            }
-                                            ?>
-                                        </p>
-                                    </div>
-                                    <p class="text-gray-500 text-sm"><?php echo $user['mail']?></p>
-                                </div>
-                    
-                <div>
-                <form action="" method="post">
-                        <button name="logout2"><img src="images/logoout.png" alt="" width="30px" title="Déconnexion <?php echo $user['username']?>"></button>
-                </form>
-                </div>
-              
-            </div>
-        </div>
-        
-        <div class='max-w-lg mx-auto py-4 pl-24 pr-24  text-lg rounded-lg mt-[-40px] '>
+                            ?>
+
+        <div class='max-w-lg mx-auto py-4 pl-24 pr-24  text-lg rounded-lg mt-16'>
             <div>
                 <h1 class="text-3xl  font-medium" >Mon profil</h1>
                 <p class="text-blue-400 mb-4 text-sm">Gérez les paramètres de votre profil</p>
@@ -102,11 +64,18 @@ if(is_post()){
                                     </label>
                                 </div>
                             </div>
-                            <a id="openPopup" style="margin-top: 5px;">
-                                <i class="fa-solid fa-trash text-blue-500" title="Supprimer la photo de profil"></i>
+                            <a id="openPopup1" href="#" style="margin-top: 5px;">
+                                <i   class="fa-solid fa-trash text-blue-500" title="Supprimer la photo de profil"></i>
                             </a>
-                            <script src="popup/script.js"></script>
-                            <?php require_once('popup/popup_deleteuserprofile.html')?>
+                            <div id="popup1" class="popup1">
+                                <div class="popup-content">
+                                    <p class="warning">Voulez-vous supprimer votre photo de profil?</p>
+                                    <div>
+                                        <button class="close" id="closePopup1">Annuler</button>
+                                        <a href="delete_profil.php">Supprimer</a>
+                                    </div>
+                                </div>
+                            </div>
                         <?php
                         
                         }
@@ -164,7 +133,5 @@ if(is_post()){
         }
 ?>
 
-</section>
-   
-                 
+</section>        
 <?php  require_once('../../html_partials/public.footer.php');?>

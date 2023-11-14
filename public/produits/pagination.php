@@ -1,6 +1,6 @@
 <script>
 // JavaScript code here
-const itemsPerPage = 4; // Change the number of items per page
+const itemsPerPage = 5; // Change the number of items per page
 
 function showPage(categoryName, pageNumber) {
     const content = document.getElementById('content' + categoryName);

@@ -11,8 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
             countValue.textContent = currentValue;
         } else {
             clearInterval(interval);
-            countValue.style.color = '#010e27';
-            countValue.style.fontSize = '1.2rem';
+            countValue.style.color = '#2196f3';
+            countValue.style.fontSize = '';
             countValue.style.fontWeight = 'Bold';
         }
     }

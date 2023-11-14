@@ -1,6 +1,6 @@
 
 <style>
-.popup {
+.popup1 {
     display: none;
     position: fixed;
     top: 0;
@@ -50,14 +50,5 @@
     padding-bottom: 3px;
     padding-top: 3px;
 }
-</style>
-<div id="popup" class="popup">
-    <div class="popup-content">
-        <p class="warning">Voulez-vous supprimer votre photo de profil?</p>
-        <div>
-            <button class="close" id="closePopup">Annuler</button>
-            <a href="delete_profil.php">Supprimer</a>
-        </div>
-    </div>
-</div>
 
+</style>

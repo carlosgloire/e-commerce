@@ -33,10 +33,6 @@
     echo '<span id="countValue" data-max="' . $nombre . '">' . $nombre . '</span> Produits publiés';
     ?>
    </p>
-
-
-
-
 </div>
 
 <?php
@@ -62,7 +58,7 @@
                 displayCategoryPagination($currentCategory);
             }
             echo "<h2 class='text-xl pl-4 font-semibold mt-4 mb-2'>$categoryName</h2>";
-            echo "<section class='px-4 flex flex-wrap  gap-6' id='content$categoryName'>";
+            echo "<section class=' flex flex-wrap px-3  gap-2' id='content$categoryName'>";
             $currentCategory = $categoryName;
         }
         displayProduct($row);
