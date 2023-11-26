@@ -63,7 +63,7 @@ require_once('../produits/css/pagination.php');
             echo "<section class=' flex flex-wrap px-3  gap-2' id='content$categoryName'>";
             $currentCategory = $categoryName;
         }
-        displayProduct($row);
+        displayProduct_user($row);
     endforeach;
     //Après la boucle, nous aurons un tableau où chaque clé de catégorie pointe vers un tableau de produits appartenant à cette catégorie.
     echo "</section>"; // Close the last category flex container

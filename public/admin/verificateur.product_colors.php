@@ -31,7 +31,7 @@ $msg = "";
         $query = $bdd->prepare('INSERT INTO images_similaires (titre,couleur,image,id) VALUES(?,?,?,?)');
         $query->execute(array($titre,$color,$filename,$produit));  
         echo '<script>alert("image similaire ajouté");</script>';
-        echo '<script>window.location.href="ajouter_images_similaires.php";</script>';
+        echo '<script>window.location.href="product_colors.php";</script>';
         exit;
     }
    }

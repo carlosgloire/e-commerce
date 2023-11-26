@@ -126,12 +126,13 @@ if(is_post()){
             }
             ?> 
         </div>
-                   
+                  
     </section>
 <?php
         }
         }
 ?>
 
-</section>        
+</section>  
+<script src="popup/delete_user-profile.js"></script>      
 <?php  require_once('../../html_partials/public.footer.php');?>

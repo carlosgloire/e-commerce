@@ -5,11 +5,18 @@ error_reporting(0);
 $msg = "";
  require_once('../../database/db.php');
  require_once('verificateur.admin.php');
+    //Recuperer l'id du produit
+    if(isset($_GET['cat_id']) AND !empty($_GET['cat_id']) ){
+        $getid = $_GET['cat_id'];
+        $recuper_catetegorie = $bdd->prepare('SELECT *FROM categories WHERE cat_id = ?');
+        $recuper_catetegorie->execute(array($getid));
+        $infos = $recuper_catetegorie->fetch();
+        $nom_categorie=$infos['nom'];
+    }
 
    if(isset($_POST['add'])){
     $titre=htmlspecialchars($_POST['titre']);
     $contenu=htmlspecialchars($_POST['contenu']);
-    $size=htmlspecialchars($_POST['size']);
     $price=htmlspecialchars($_POST['prix']);
     $stock=htmlspecialchars($_POST['stock']);
     $filename = $_FILES["uploadfile"]["name"];
@@ -18,7 +25,11 @@ $msg = "";
 	$tempname = $_FILES["uploadfile"]["tmp_name"];
 	$folder = "./image_produits_db/" . $filename;
 	$allowed_formats= array('jpg','jpeg','png','JPG','JPEG','PNG');
-   
+        // Récupération des valeurs des cases à cocher
+        $size = isset($_POST["size"]) ? $_POST["size"] : [];
+
+        // Convertir les fruits en une seule chaîne de caractères
+        $size_string = implode(', ', $size);
 
     if( empty($_POST['titre']) AND  empty($_POST['contenu']) AND  empty($_POST['prix']) AND empty($_POST['uploadfile'])){
         //si l'utilisateur clique sur le bouton d'envoie verifie si tous les champs ne sont pas vide
@@ -50,9 +61,17 @@ $msg = "";
         if (! move_uploaded_file($tempname, $folder)) {
             $_SESSION['flash_message']="ERREUR!!";  
         } 
-        $query = $bdd->prepare('INSERT INTO produits (titre,filename,contenu,size,cat_id,stock,prix) VALUES(?,?,?,?,?,?,?)');
-        $query->execute(array($titre,$filename,$contenu,$size,$id,$stock,$price));
-        $_SESSION['flash_message']="Produit ajouté avec succès";   
+        $query = $bdd->prepare('INSERT INTO produits (titre,filename,contenu,size,cat_id,stock,prix) VALUES(:titre,:filename,:contenu,:size,:cat_id,:stock,:prix)');
+        $query->bindParam(':titre',$titre);
+        $query->bindParam(':filename',$filename);
+        $query->bindParam(':contenu',$contenu);
+        $query->bindParam(':size',$size_string,PDO :: PARAM_STR);
+        $query->bindParam(':cat_id',$id);
+        $query->bindParam(':stock',$stock);
+        $query->bindParam(':prix',$price);
+        $query->execute();
+        $_SESSION['flash_message']="Produit ajouté avec succès";  
+        
     }
    }
 ?>

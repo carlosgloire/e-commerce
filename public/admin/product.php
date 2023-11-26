@@ -36,7 +36,7 @@
             ?>  
             </div>   
             <p class="bg-blue-500 text-white px-5 mb-5 shadow-sm rounded text-center text-base " >
-                <a  href="categories.php"> Ajouter un produit</a> 
+                <a id="add_product" class="cursor-pointer"> Ajouter un produit</a> 
             </p>  
         </div>
         <div>
@@ -55,7 +55,7 @@
                 if($stmt->rowCount() > 0){
                     foreach($products as $row){
                         ?>                              
-                            <div class="product shadow-sm p-3 mb-4 w-[270px] border bg-white">
+                            <div class="product shadow-sm p-3   w-[270px] border bg-white">
                                 <div class="flex justify-between">
                                     <h1 class=" mb-3   text-blue-500">
                                         <?php echo $row['titre']; ?>
@@ -75,7 +75,7 @@
                                         echo $row['prix']."$"; 
                                     ?> 
                                 </div>
-                                <div class="flex mt-5 gap-5">
+                                <div class="flex  gap-5">
                                     <div class="delete-block">
                                         <a href="#" class="delete" data-product-id="<?php echo $row['id']; ?>"><img src="icones/delete.png" alt="icone supprimer" width="30px" title="Supprimer"></a>
                                         <?php
@@ -100,6 +100,7 @@
                 $bdd = null;
             ?>                  
         </div>
+        <?php require_once('stayActive.php'); ?>
         <?php require_once('popup/script.php')?>
     </div>
 </section>

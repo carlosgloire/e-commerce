@@ -27,36 +27,31 @@ require_once('verificateur.admin.php');
                 ?>
                 </p>
         </div>
-         
-            <div class="">
-                <?php  
+        <?php       
+              $categories= $bdd->query("SELECT * FROM categories"); 
+              if($categories->rowCount() > 0){
+                    while($row = $categories->fetch(PDO::FETCH_ASSOC)){
+                        ?>
+                        <a  href="add_product.php?cat_id=<?php  echo $row['cat_id']?>">                    
+                            <div class="mb-2">
+                            <div class="bg-white shadow-sm border rounded p-3">
+                                <p ><?php echo $row['nom'] ?></p>
+                            </div>
+                            </div>
+                        <?php  
                 
-                            $categories= $bdd->query("SELECT * FROM categories"); 
-                            if($categories->rowCount() > 0){
-                                while($row = $categories->fetch(PDO::FETCH_ASSOC)){
-                                   
-                                    ?>
-                                    <div class="mb-2">
-                                    <div class="bg-white shadow-sm border rounded p-3">
-                                        <a  href="add_product.php?cat_id=<?php  echo $row['cat_id']?>"><?php echo $row['nom'] ?></a>
-                                    </div>
-                                    </div>
-                                   
-                            
-                                <?php  
-                
-                                }
-                            
-                            }
-                            else {
-                            ?>
-                            <p class="text-gray-500"><?php echo 'Aucune categorie ajouté' ?></p>
-                            <?php
-                            }
-                            $bdd = null;
-                ?>                  
-            </div>
+                    }
+                        
+                        }
+                        else {
+                        ?>
+                        <p class="text-gray-500"><?php echo 'Aucune categorie ajouté' ?></p>
+                        <?php
+                        }
+                        $bdd = null;
+                    ?>                  
+                </a>      
     </div>
 </section>
-
+<?php require_once('stayActive.php'); ?>
 <?php require_once('../../html_partials/footer.html.php'); ?>

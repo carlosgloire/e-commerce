@@ -41,7 +41,7 @@ require_once('verificateur.admin.php');
                     $produits = $query->fetchAll();
                 foreach ($produits as $produit) {
                 ?>
-                    <option value='<?php echo $produit['id'] ?> '> <?php echo $produit['titre'] ?></option>
+                    <option value='<?php echo $produit['id'] ?> '> <?php echo $produit['titre'].' id =>'.$produit['id'] ?></option>
                 <?php    
                 }
                 ?>
@@ -59,3 +59,4 @@ require_once('verificateur.admin.php');
     ?>          
     </div>
 </section>
+<?php require_once('stayActive.php'); ?>

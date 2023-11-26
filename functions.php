@@ -118,12 +118,12 @@ function displayProduct($row) {
 //Function to display products
 function displayProduct_user($row) {
     ?>
-      <aside class="shadow-sm p-3  border rounded bg-white">
-      <h1 class="mb-3 text-[#1d2238]">
+       <aside class="shadow-sm p-3 border rounded bg-white ">
+      <h1 class="mb-2 text-[#1d2238]">
                 <?php echo $row['titre']; ?>
             </h1>
             <div class=" mb-1 ">
-                <a  href="../user/voir_en_detail.php?id=<?php echo $row['id'] ?>" >                
+                <a  href="voir_en_detail.php?id=<?php echo $row['id'] ?>" >                
                     <img class="object-cover" src="../admin/image_produits_db/<?php echo $row['filename']; ?>" style="width: 230px;height:230px;">
                 </a>
             </div>
@@ -139,7 +139,7 @@ function displayProduct_user($row) {
                 ?>
                 </p>
             </div>
-            <div class="flex gap-6  items-center">
+            <div class="flex gap-4  items-center">
                 <form action="acheter.php" method="post">
                     <button class="bg-[#010e27] text-white px-4  shadow-sm  text-center text-base" name="acheter" style="border: 1px solid #010e27;">Acheter</button>
                 </form>
