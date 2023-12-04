@@ -15,6 +15,7 @@ $msg = "";
     $prix=$infos['prix'];
     $image=$infos['filename'];
     $stock=$infos['stock'];
+    $size=$infos['size'];
  }
 
  if(isset($_POST['modify'])){
@@ -23,13 +24,14 @@ $msg = "";
     $categorie1=htmlspecialchars($_POST['categorie']);
     $price=htmlspecialchars($_POST['prix']);
     $stock=htmlspecialchars($_POST['stock']);
+    $size=htmlspecialchars($_POST['size']);
       // Handle file upload
       if (!empty($_FILES['uploadfile']['name'])) {
         $filename = $_FILES['uploadfile']['name'];
         $filesize = $_FILES['uploadfile']['size'];
         $filetype = $_FILES['uploadfile']['type'];
         $tempname = $_FILES['uploadfile']['tmp_name'];
-        $folder = "./user_images/" . $filename;
+        $folder = "./image_produits_db/" . $filename;
         $allowedExtensions = ['png', 'jpg', 'jpeg'];
         $pattern = '/\.(' . implode('|', $allowedExtensions) . ')$/i';
 
@@ -55,8 +57,8 @@ $msg = "";
         $_SESSION['flash_message']="Veillez ajouter du contenu!!";  
     }
     else{
-            $updtadeproduct = $bdd->prepare('UPDATE produits SET titre = ?, filename = ?,  contenu = ? ,cat_id = ?,stock = ?, prix = ? WHERE id=?');
-            $updtadeproduct->execute(array($titre,$filename,$contenu,$categorie1,$stock,$price,$getid));  
+            $updtadeproduct = $bdd->prepare('UPDATE produits SET titre = ?, filename = ?,  contenu = ?, size = ? ,cat_id = ?,stock = ?, prix = ? WHERE id=?');
+            $updtadeproduct->execute(array($titre,$filename,$contenu,$size,$categorie1,$stock,$price,$getid));  
             echo '<script>alert("Produit modifie");</script>';
             echo '<script>window.location.href="product.php";</script>';
             exit;            

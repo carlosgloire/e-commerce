@@ -44,6 +44,10 @@
         <label for="mail">Description</label>
         <textarea class="rounded bg-gray-100 mb-2 w-full border-[1px] border-black px-3"  name="contenu" id="contenu" cols="10" rows="2"><?php echo $description ?></textarea>
     </div>
+    <div class='grid'>
+        <label for="size">Sizes</label>
+        <input class="rounded bg-gray-100 mb-2 w-full border-[1px] border-black px-3" type="text" name='size' value='<?php echo $size ?>'>
+    </div>
      <div class="grid">
         <label for="categorie"> Sélectionner la categorie</label>
         <select name="categorie"  id="categorie"  class="rounded bg-gray-100 mb-2 w-full border-[1px] border-black px-3">

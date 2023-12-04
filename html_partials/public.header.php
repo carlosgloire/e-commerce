@@ -11,5 +11,5 @@
     <script src="../js/search.js"></script>
     <title><?= $title ?? 'E-commerce/User' ?></title>
 </head>
-<body class="bg-gray-100">
+<body class="bg-white">
   

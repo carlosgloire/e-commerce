@@ -12,10 +12,7 @@ $(document).ready(function() {
     $("#statistics-link").addClass("bg-gray-300");
   } else if (activePage === "Add-product") {
     $("#product-link").addClass("bg-gray-300");
-  }else if (activePage === "Product-colors") {
-    $("#product_colors-link").addClass("bg-gray-300");
-  }
-  else {
+  }else {
     $("#dashboard-link").addClass("bg-gray-300");
   }
   // Handle the click on Dashboard link
@@ -25,7 +22,6 @@ $(document).ready(function() {
     $("#product-link").removeClass("bg-gray-300");
     $("#statistics-link").removeClass("bg-gray-300");
     $("#help-link").removeClass("bg-gray-300");
-    $("#product_colors-link").removeClass("bg-gray-300");
     window.location.href = "index.php?page=Dashboard";
   });
 
@@ -36,7 +32,6 @@ $(document).ready(function() {
     $("#dashboard-link").removeClass("bg-gray-300");
     $("#statistics-link").removeClass("bg-gray-300");
     $("#help-link").removeClass("bg-gray-300");
-    $("#product_colors-link").removeClass("bg-gray-300");
     window.location.href = "product.php?page=Products";
   });
 
@@ -47,28 +42,18 @@ $(document).ready(function() {
     $("#dashboard-link").removeClass("bg-gray-300");
     $("#product-link").removeClass("bg-gray-300");
     $("#help-link").removeClass("bg-gray-300");
-    $("#product_colors-link").removeClass("bg-gray-300");
     window.location.href = "statistics.php?page=Statistics";
   });
 
   // Handle the click on product_colors-link
   $("#product_colors-link").on("click", function(e) {
     e.preventDefault();
-    $("#product_colors-link").addClass("bg-gray-300");
     $("#dashboard-link").removeClass("bg-gray-300");
     $("#product-link").removeClass("bg-gray-300");
     $("#statistics-link").removeClass("bg-gray-300");
     window.location.href = "product_colors.php?page=Product-colors";
   });
-    // Handle the click on add_product-link
-    $("#add_product").on("click", function(e) {
-    e.preventDefault();
-    $("#product-link").addClass("bg-gray-300");
-    $("#dashboard-link").removeClass("bg-gray-300");
-    $("#statistics-link").removeClass("bg-gray-300");
-    $("#product_colors-link").removeClass("bg-gray-300");
-    window.location.href = "categories.php?page=Add-product";
-  });
+
 });
 </script>
 

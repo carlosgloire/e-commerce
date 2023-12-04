@@ -83,7 +83,7 @@ function slugify_blog_page($content) {
 //Function to display products
 function displayProduct($row) {
     ?>
-      <aside class="shadow-sm p-3 border rounded bg-white " >
+      <aside class=" p-3 rounded bg-white " style="box-shadow: 0px 0px 30px 0px rgb(240 240 240); border: none;">
             <h1 class="mb-2 text-[#1d2238]">
                 <?php echo $row['titre']; ?>
             </h1>
@@ -105,26 +105,23 @@ function displayProduct($row) {
                 </p>
             </div>
             <div class="flex gap-4  items-center">
-                    <a href="#"   class="bg-[#010e27] text-white px-4  shadow-sm  text-center text-base delete"style="border: 1px solid #010e27;"  name="acheter">Acheter</a>
-                    <?php
-                        //Appelle a la fonction pour afficher un popup 
-                            popup_window_not_connected_user();
-                    ?>
+                    <a  class="bg-[#010e27] text-white px-4  shadow-sm  text-center text-base buy" href="acheter.php?id=<?php echo $row['id']?>"  style="border: 1px solid #010e27;"  >Acheter</a>
                 <a class="text-[#1d2238]  px-2 hover:bg-[#010e27]  hover:text-[#1d2238]  shadow-sm text-center text-base" href="voir_en_detail.php?id=<?php echo $row['id'] ?>" style="border: 1px solid #1d2238;">Voir en Detail</a>
             </div>
         </aside>
     <?php
 }
+
 //Function to display products
-function displayProduct_user($row) {
+function displayProduct_admin($row) {
     ?>
-       <aside class="shadow-sm p-3 border rounded bg-white ">
-      <h1 class="mb-2 text-[#1d2238]">
+      <aside class=" p-3 rounded bg-white " style="box-shadow: 0px 0px 30px 0px rgb(240 240 240); border: none;">
+            <h1 class="mb-2 text-[#1d2238]">
                 <?php echo $row['titre']; ?>
             </h1>
             <div class=" mb-1 ">
-                <a  href="voir_en_detail.php?id=<?php echo $row['id'] ?>" >                
-                    <img class="object-cover" src="../admin/image_produits_db/<?php echo $row['filename']; ?>" style="width: 230px;height:230px;">
+                <a  href="voir_plus.php?id=<?php echo $row['id'] ?>" >                
+                    <img class="object-cover" src="image_produits_db/<?php echo $row['filename']; ?>" style="width: 230px;height:230px;">
                 </a>
             </div>
             <div>
@@ -139,11 +136,16 @@ function displayProduct_user($row) {
                 ?>
                 </p>
             </div>
-            <div class="flex gap-4  items-center">
-                <form action="acheter.php" method="post">
-                    <button class="bg-[#010e27] text-white px-4  shadow-sm  text-center text-base" name="acheter" style="border: 1px solid #010e27;">Acheter</button>
-                </form>
-                <a class="text-[#1d2238]  px-2 hover:bg-[#010e27]  hover:text-[#1d2238]  shadow-sm text-center text-base" href="../user/voir_en_detail.php?id=<?php echo $row['id'] ?>" style="border: 1px solid #1d2238;">Voir en Detail</a>
+            <div class="flex  gap-5">
+                <div class="delete-block">
+                    <a href="#" class="delete" data-product-id="<?php echo $row['id']; ?>"><img src="icones/delete.png" alt="icone supprimer" width="30px" title="Supprimer"></a>
+                    <?php
+                    //Appelle a la fonction pour afficher un popup de suppression
+                        popup_window_delete_product($row);
+                    ?>
+                </div>
+                <a  href="edit.php?id=<?php echo $row['id'];?>"><img src="icones/edit.png" alt="icone edit" width="30" title="Modifier"></a>
+                <a href="voir_plus.php?id=<?php echo $row['id']?>"><img src="icones/more.png" alt="Icone voir plus" title="Voir plus" width="30px"></a>
             </div>
         </aside>
     <?php
@@ -156,25 +158,25 @@ function popup_window_delete_product($row){
     ?>
     <div class="popup">
         <div class="popup-content">
-            <p class="warning">Voulez-vous supprimer << <?php echo $row['titre']; ?>>></p>
+            <p class="warning">Voulez-vous supprimer << <?php echo $row['titre']; ?> >></p>
             <div>
                 <button class="close" id="closePopup">Annuler</button>
-                <a href="delete.product.php?id=<?php echo $row['id']?>" id="deleteProduct">Supprimer</a>
+                <a href="delete.product.php?id=<?php echo $row['id']?>" id="buyProduct">Supprimer</a>
             </div>
         </div>
     </div>
     <?php
 }
-function popup_window_not_connected_user(){
+function popup_window_delete_product_viewmore($titre,$getid){
     ?>
-        <div class="popup">
-            <div class="popup-content">
-                <p class="warning">Pour acheter vous devez d'abbord vous connecter</p>
-                <div>
-                    <button class="close" id="closePopup">Annuler</button>
-                    <a href="../user/login.php" id="deleteProduct">Connexion</a>
-                </div>
+    <div class="popup">
+        <div class="popup-content">
+            <p class="warning">Voulez-vous supprimer << <?php echo $titre; ?> >></p>
+            <div>
+                <button class="close" id="closePopup">Annuler</button>
+                <a href="delete.product.php?id=<?php echo $getid?>" id="buyProduct">Supprimer</a>
             </div>
         </div>
+    </div>
     <?php
 }

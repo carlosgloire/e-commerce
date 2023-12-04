@@ -15,7 +15,7 @@
      <?php if(isset($_POST['add']) && ! empty($_SESSION['flash_message']))
     {
     ?>  <div class="text-center mt-[3%] ">
-            <div id='flash-message-succes' class='pl-4 leading-5 shadow-lg  rounded bg-white green-red-500 text-[16px] transition-opacity duration-500 ease-in max-w-lg mx-auto '><?php echo $_SESSION['flash_message']?></div>
+            <div id='flash-message-succes' class='pl-4 leading-5 shadow-lg text-green-500 rounded bg-white green-red-500 text-[16px] transition-opacity duration-500 ease-in max-w-lg mx-auto '><?php echo $_SESSION['flash_message']?></div>
         </div>
     <?php
     }

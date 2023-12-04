@@ -1,5 +1,5 @@
 <?php
- //Recuperer l'id du produit
+ //Recuperer l'id du categorie
     require_once('../../database/db.php');
     require_once('verificateur.admin.php');
     if(isset($_GET['cat_id']) AND !empty($_GET['cat_id']) ){

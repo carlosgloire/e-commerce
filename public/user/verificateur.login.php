@@ -18,7 +18,7 @@
             $_SESSION['user']=$user;
             $_SESSION['username']=$username;
             $_SESSION['password']=$password;
-            header("location:user.php");
+            header("location:../produits/home.php");
             exit;
         }
      else{

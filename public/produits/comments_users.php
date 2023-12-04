@@ -1,18 +1,6 @@
-<?php 
 
-require_once('../../html_partials/public.header.php');
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../dist/style.css">
-</head>
-<body>
     <section class="p-6">
-        <h1 class="mb-4 text-xl text-center ">CE QUE DISENT NOS CLIENTS</h1>
+        <h1 class="mb-4 text-xl text-center ">AVIS DES UTILISATEURS</h1>
         <div class="flex gap-6">
             <div class=" border  p-6 shadow-sm bg-[#010e27] text-white rounded-md">
                 <div>
@@ -75,6 +63,4 @@ require_once('../../html_partials/public.header.php');
        
     </section>
   
-</body>
-</html>
-<?php  require_once('../../html_partials/public.footer.php');?>
+

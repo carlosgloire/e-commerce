@@ -1,19 +1,20 @@
+<?php   require_once('../../functions.php');?>
 <?php 
+    
     $title = 'Accueil';
     require_once('../../html_partials/public.header.php');
     require_once('../../database/db.php'); 
     require_once('../../js/flash.php');
     require_once('css/pagination.php');
-    require_once('../../functions.php');
+  
+    
 ?>
-
 <div >
     <?php require_once('menu_bar.php');?>
 </div>
 <div class="pt-16"></div>
 <div class=" w-full ">
-    <?php  require('slider2.php');?>
- 
+    <?php require('slider2.php');?>
 </div>
 <div class="flex justify-between pr-10 ">
     <div></div>
@@ -23,16 +24,18 @@
     </div>
     <?php } ?>
 
-    <p id="counter" class="text-gray-500 mt-4">
+    <div id="counter" class="text-gray-500 mt-4 flex gap-2">
     <?php
     // Requête pour compter le nombre de produits
     $requete = $bdd->prepare("SELECT COUNT(id) AS nombre FROM produits");
     $requete->execute();
     $nombre = $requete->fetchColumn();
-
-    echo '<span id="countValue" data-max="' . $nombre . '">' . $nombre . '</span> Produits publiés';
     ?>
-   </p>
+      <p class="text-blue-500"><?php  echo '<span id="countValue" data-max="' . $nombre . '">' . $nombre . '</span> '; ?></p>
+      <p><?= ' produit' . ($nombre >=2 ? 's' : '').' publié' . ($nombre >=2 ? 's' : '') ;?></p>
+    <?php
+    ?>
+   </div>
 </div>
 
 <?php
@@ -68,16 +71,19 @@
     displayCategoryPagination($currentCategory);//Displaying the last pagination
 
 ?>
-<?php require_once('../admin/popup/script.php')?>
-<?php require_once('../admin/popup/css_popup.php')?>
+
 <section>
     <?php require_once('comments_users.php') ?>
 </section>
+
+<?php require_once('../user/popup/css_popupdelete_userprofile.php')?>
 <script src="js/slider.js"></script>
-<script src="../user/popup/script.js"></script>
+<script src="../user/popup/popup_ope-settings.js"></script>
+
 <?php 
     require_once('js/counter.php');
     require_once('pagination.php');
     require_once('../../html_partials/public.footer.php');
+    session_write_close();
 ?>
 

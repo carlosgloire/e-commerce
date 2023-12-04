@@ -12,4 +12,4 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../js/autocomplete.js"></script>
 </head>
-<body class="bg-gray-100">
+<body class="bg-white">

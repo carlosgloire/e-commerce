@@ -13,10 +13,11 @@
     
     ?>
 <?php require_once('menu_bar.php');?>
+
 <section class="p-6 mx-auto pt-20 flex gap-10 max-w-full">
-    <div class="w-[50%] h-1/2">
-        <div class="flex mt-1 gap-10">
-            <img class="rounded w-full h-full  object-cover " src="../admin/image_produits_db/<?php echo $image_produit ?>">          
+    <div class="w-[50%] ">
+        <div class="">
+        <?php require_once('slider_product_faces.php')?>
         </div>
     </div>
     <div class="w-[50%] ">
@@ -40,19 +41,20 @@
                     if($query->rowCount() > 0){
                         ?>
                             <div class="grid">
-                                <p class="text-blue-500 mb-2"> Couleurs Disponible</p>
-                                <aside class="flex gap-3" id="content">
+                                <p class="text-[#010e27] mb-2"> Couleurs Disponible</p>
+                                <aside class="flex gap-3 " id="content">
+                                    <div class="">
+                                        <img class="rounded w-full h-full  object-cover " src="../admin/image_produits_db/<?php echo $image_produit ?>" style="width: 200px;height:200px">  
+                                    </div>
+                                
                                     <?php
                                     while($produit = $query->fetch(PDO::FETCH_ASSOC)){
                                         ?> 
-                                            <div class="grid " >
+                                            <div>
                                                 <div class="  ">
-                                                    <img class="rounded  object-cover " src="../admin/images_similaires/<?php echo $produit['image']?>" width="200px" height="200px">          
+                                                    <img class="rounded  object-cover " src="../admin/images_similaires/<?php echo $produit['image']?>"  style="width: 200px;height:200px">          
                                                 </div>
-                                                <div class="text-[#1d2238] text-center">
-                                                    <?php echo $produit['couleur']?>
-                                                </div>
-                                    </div>
+                                            </div>
                                         <?php
                                     }
                                     ?>
@@ -100,7 +102,7 @@
 
                                         <?php
                                     }
-                                
+                                     
                                 ?>
                             </div>
                         </div>
@@ -111,7 +113,7 @@
                 
                     </p>
                     </p>
-                    <a class="bg-blue-500  text-white px-2 py-1 shadow-sm rounded text-center text-base flex  w-[120px] " href="acheter.php">
+                    <a class="bg-blue-500  text-white px-2 py-1 shadow-sm rounded text-center text-base flex  w-[120px] " href="acheter.php?id=<?php echo $getid;?>">
                         <div class=" gap-4 flex">
                             <p>Acheter</p>
                             <img src="../produits/images/cart2.jpg" alt="image cart" width="25px" height="20px">
@@ -124,6 +126,8 @@
        
     </div>   
 </section>
+<script src="../user/popup/popup_ope-settings.js"></script>
+<script src="js/slider.js"></script>
 <script src="js/pagination-voir-en-detail.js"></script>
 <?php require_once('css/pagination_voir-en-detail.php')?>
 <?php require_once('../../html_partials/public.footer.php')?>

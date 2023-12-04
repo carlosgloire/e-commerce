@@ -11,14 +11,10 @@ document.addEventListener("DOMContentLoaded", function () {
             countValue.textContent = currentValue;
         } else {
             clearInterval(interval);
-            countValue.style.color = '#2196f3';
-            countValue.style.fontSize = '';
             countValue.style.fontWeight = 'Bold';
         }
     }
 
-    const interval = setInterval(updateCounter, 60);
+    const interval = setInterval(updateCounter, 120);
 });
-
-
 </script>

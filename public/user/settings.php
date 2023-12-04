@@ -6,13 +6,14 @@ require_once('../../database/db.php');
 require_once ('../../js/flash.php');
 require_once('verificateur.user.php');
 require_once('verificateur.settings.php');
+not_user_connected();
 if(is_post()){
     require_once('verificateur.settings.php'); 
 }
 
 ?>
  <?php require_once('popup/css_popupdelete_userprofile.php')?>
-<?php require_once('menu_bar_user.php');?>
+<?php require_once('../produits/menu_bar.php');?>
 <section class=" flex ">
     <nav class=" shadow-lg p-20 border  pt-16 h-[100vh] bg-white">
         <aside class="grid gap-4 mt-6 ">

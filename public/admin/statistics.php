@@ -10,7 +10,7 @@
 require_once('verificateur.admin.php');
 ?>
 <?php require_once('header.admin.php'); ?>
-<section class="grid grid-cols-5" >
+<section class="grid grid-cols-5 pt-16" >
     <?php require_once('navbar.php');?>
     <div class="col-span-4 p-6">
        <h1 class="text-xl font-semibold mb-3 ">STATISTICS</h1>         

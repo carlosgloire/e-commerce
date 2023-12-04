@@ -1,6 +1,6 @@
 <?php
 require_once('../../database/db.php');
-require_once('slider_css.php');
+require_once('css/slider_css.php');
 ?>
     <section>
     <div class="slider">

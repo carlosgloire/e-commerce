@@ -10,14 +10,7 @@
     }
     ?>
     
-    <script type="text/javascript">
-        //This code serve to prevent the user to go back after logging in
-        function preventBack(){window.history.forward()};
-        setTimeout("preventBack()",0);
-        window.onunload=function(){null;}
-       
-    </script>
-    <div class='max-w-lg mx-auto py-4 pl-24 pr-24  mt-[10%] text-lg rounded-lg  shadow-sm bg-white'>
+    <div class='max-w-lg mx-auto py-4 pl-24 pr-24  mt-[10%] text-lg rounded-lg  shadow-sm bg-white' style="box-shadow: 0px 0px 30px 0px rgb(240 240 240); border: none;">
       <p class=""><img class="mx-auto   items-center" src="../produits/images/gs_logo.png" alt="Logo Glory Shop" width="60px"></p>
       <h1 class="text-3xl mb-6 " >Connexion utilisateur</h1>
       <form action="" method='post' class='mb-2'>

@@ -14,6 +14,7 @@
     $categorie= $infos['nom'];
     $image_produit=$infos['filename'];
     $stock=$infos['stock'];
+    $size=$infos['size'];
     $_SESSION['id']=$getid;
  }
 
