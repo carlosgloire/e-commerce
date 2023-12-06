@@ -5,7 +5,6 @@
     require_once('../../database/db.php'); 
     require_once ('../../js/flass-succes.php');
     require_once('verificateur.admin.php');
-    require_once('verificateur.categories.php');
     require_once('verificateur.add_product.php'); 
     if(is_post()){
         require_once('verificateur.categories.php');
