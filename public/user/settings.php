@@ -134,6 +134,7 @@ if(is_post()){
         }
 ?>
 
-</section>  
+</section> 
+<script src="popup/popup_ope-settings.js"></script> 
 <script src="popup/delete_user-profile.js"></script>      
 <?php  require_once('../../html_partials/public.footer.php');?>

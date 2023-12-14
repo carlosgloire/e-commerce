@@ -83,7 +83,7 @@ function slugify_blog_page($content) {
 //Function to display products
 function displayProduct($row) {
     ?>
-      <aside class=" p-3 rounded bg-white " style="box-shadow: 0px 0px 30px 0px rgb(240 240 240); border: none;">
+      <aside class=" p-3 rounded bg-white " style="box-shadow: 0px 0px 10px 0px rgb(240 240 240); border: none;">
             <h1 class="mb-2 text-[#1d2238]">
                 <?php echo $row['titre']; ?>
             </h1>
@@ -115,7 +115,7 @@ function displayProduct($row) {
 //Function to display products
 function displayProduct_admin($row) {
     ?>
-      <aside class=" p-3 rounded bg-white " style="box-shadow: 0px 0px 30px 0px rgb(240 240 240); border: none;">
+      <aside class=" p-3 rounded bg-white " style="box-shadow: 0px 0px 10px 0px rgb(240 240 240); border: none;">
             <h1 class="mb-2 text-[#1d2238]">
                 <?php echo $row['titre']; ?>
             </h1>

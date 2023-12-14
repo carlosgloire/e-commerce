@@ -9,6 +9,7 @@
     <link rel="sitemap" href="sitemap.xml" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="../js/search.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
     <title><?= $title ?? 'E-commerce/User' ?></title>
 </head>
 <body class="bg-white">

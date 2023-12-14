@@ -40,10 +40,10 @@
                 <a id="add_product" class="cursor-pointer"> Ajouter un produit</a> 
             </p>  
         </div>
-        <div>
+        <div class="px-3 gap-2">
             <?php 
             //search page
-            if(isset($_POST['save']))
+            if(isset($_GET['save']))
             {
                 require_once('search_admin.php');
             }?>

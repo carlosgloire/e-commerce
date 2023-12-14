@@ -26,7 +26,7 @@
                             <label  for="fileInput">
                             <div class="text">
                                 <p class="flex gap-2">
-                                    <img class="rounded-[50%] border " src="../admin/image_produits_db/<?php echo $image?>" width="100px" height="100px">
+                                    <img class="rounded-[50%] border object-cover " src="../admin/image_produits_db/<?php echo $image?>" style="width: 100px; height:100px">
                                 </p> 
                             </div>
                             </label>

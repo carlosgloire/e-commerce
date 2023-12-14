@@ -6,9 +6,9 @@ require_once('../../functions.php');
 $searchErr = '';
 $product_details='';
 
-	if(!empty($_POST['search'])){
+	if(!empty($_GET['search'])){
 
-		$search = htmlspecialchars($_POST['search']);
+		$search = htmlspecialchars($_GET['search']);
 		//Rechercher selon le titre du produit
 		$stmt = $bdd->prepare("SELECT  p.id, p.titre, SUBSTRING( p.contenu ,1,22) AS description , p.filename,p.prix,c.nom FROM produits p, categories c WHERE titre LIKE '%$search%'   AND p.cat_id=c.cat_id ");
 		$stmt->execute();
@@ -21,7 +21,7 @@ $product_details='';
 	}
 	else
 	{   echo '<script>alert("Veillez ecrire les informations");</script>';
-		echo '<script>window.location.href="home.php";</script>';
+		echo '<script>window.location.href="product.php";</script>';
 		exit;
 	}
    
@@ -39,25 +39,30 @@ $product_details='';
 					while($result=$query->fetch()){
 						if($result['produit'] > 1){
 							?>
-							<p class="text-green-500 pl-10"><?php echo $result['produit'].' résultats trouvés' ?></p>
-						<?php
+								<div class="text-center mb-2">
+									<p class="text-green-500 pl-10"><?php echo $result['produit'].' résultats trouvés' ?></p>
+
+								</div>
+							<?php
 						}
 						elseif($result['produit'] == 1){
 							?>
-							<p class="text-green-500 pl-10"><?php echo $result['produit'].'  résultat trouvé' ?></p>
-						<?php
+								<div class="text-center">
+									<p class="text-green-500 "><?php echo $result['produit'].'  résultat trouvé' ?></p>
+								</div>
+							<?php
 					}
 					}
 				
 				?>
 
 				</div>
-			    <div class="flex flex-wrap  gap-6 "> 
+			    <div class="flex flex-wrap  gap-2 "> 
 								
 							<?php
 							if(!$product_details)
-							{
-								echo '<p>Aucun résultat trouvé</p>';
+							{	
+								echo '<div class="text-center"><p class="text-red-500">Aucun résultat trouvé</p></div>';
 							}
 							else{
 							
@@ -66,16 +71,15 @@ $product_details='';
 								
 									?>
 								
-									<div class="shadow-sm p-3 w-[270px] mb-4 border bg-white">
+									<div class=" p-3 rounded " style="box-shadow: 0px 0px 10px 0px rgb(240 240 240); border: none;">
 										<div class="flex justify-between">
-											<h1 class=" mb-3   text-blue-500">
+											<h1 class=" mb-3   text-[#010e27]">
 										<?php echo $value['titre']; ?>
 										</h1>
 										<p class="text-gray-400"><?php echo $value['nom'];?></p>
 										</div> 
-										<div class="flex mt-1 gap-10">
-											<?php require_once('../admin/verificateur.add_product.php');?>
-											<img class="rounded   w-[250px] h-[250px] object-cover " src="../admin/image_produits_db/<?php echo $value['filename']; ?>">          
+										<div class="flex mt-1">
+											<img class="object-cover w-[230px] h-[230px]" src="../admin/image_produits_db/<?php echo $value['filename']; ?>" >          
 										</div>
 										<div>
 											<?php
@@ -87,7 +91,7 @@ $product_details='';
 												echo $value['prix']."$"; 
 											?> 
 										</div>
-										<div class="flex mt-5 gap-5">
+										<div class="flex mt-5 gap-5" style="display: flex;">
 												<a  href="edit.php?id=<?php echo $value['id'];?>"><img src="icones/edit.png" alt="icone edit" width="30" title="Modifier"></a>
 												<form action="delete.product.php?id=<?php echo $value['id'];?>" method="POST">
 												<button  ><img src="icones/delete.png" alt="icone supprimer" width="30px" title="Supprimer"></button> 

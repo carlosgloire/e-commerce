@@ -17,18 +17,22 @@
 	$folder = "./user_images/" . $filename;
 	$allowedExtensions = ['png', 'jpg', 'jpeg'];
     $pattern = '/\.(' . implode('|', $allowedExtensions) . ')$/i';
-
+      
+    //Request of verifying if the username already exist
+       $Requete= $bdd->prepare('SELECT * FROM users WHERE  username= ? AND mail =?  ');
+       $Requete->execute(array($username,$mail));
+       $user_exist= $Requete->fetch(PDO::FETCH_ASSOC); //PDO :: ASSOC for avoiding duplication
+       
     if(empty($username) || empty($password) || empty($mail)){
         //si l'utilisateur clique sur le bouton d'envoie verifie si tous les champs ne sont pas vide
         $_SESSION['flash_message']="Veillez remplir tous les champs !!";
         
     }
-   elseif( empty($_POST['username'])){
-        $_SESSION['flash_message']="Veillez saisir le nom d'utilisateur !!"; 
+ 
+    elseif($user_exist){
+        $_SESSION['flash_message']= "'".$username."' et '".$mail."' ont etés utilises pour un autre compte "; 
     }
-   elseif( empty($_POST['mail'])){
-        $_SESSION['flash_message']="Veillez saisir le mail !!";  
-    }
+    
     elseif(!preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#",$_POST['mail'])){
 
         $_SESSION['flash_message']="Le mail que vous avez saisi est incorrect !!"; 
@@ -45,6 +49,16 @@
             $_SESSION['flash_message'] = "Votre fichier doit etre au format \"jpg,jpeg ou png \"";
            
     }
+        elseif (! preg_match($pattern, $_FILES['uploadfile']['name']) AND !empty($_FILES['uploadfile']['name'])) {
+       
+            $_SESSION['flash_message'] = "Votre fichier doit etre au format \"jpg,jpeg ou png \"";
+           
+    }
+    elseif ($_FILES['uploadfile']['size'] > 500000)  {
+       
+        $_SESSION['flash_message'] = "Votre fichier ne doit pas depasser 5MB";
+       
+    }    
     elseif( empty($_POST['password'])){
         $_SESSION['flash_message']="Veillez saisir le mot de passe !!"; 
     }

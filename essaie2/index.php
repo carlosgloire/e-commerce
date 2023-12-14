@@ -1,54 +1,24 @@
+<?php require_once('search.php')?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Pagination Example</title>
-    <style>
-        .pagination {
-            display: flex;
-            list-style: none;
-        }
-
-        .pagination p {
-            margin: 5px;
-            padding: 5px 10px;
-            border: 1px solid #ccc;
-            cursor: pointer;
-        }
-
-        .pagination p.active {
-            background-color: #0074D9;
-            color: #fff;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Bar with PHP and Database</title>
 </head>
 <body>
-    <div id="content">
-        <!-- Content goes here, e.g., a list of items -->
-        <p class="item">Item 1</p>
-        <p class="item">Item 2</p>
-        <p class="item">Item 3</p>
-        <p class="item">Item 4</p>
-        <p class="item">Item 5</p>
-        <p class="item">Item 6</p>
-        <p class="item">Item 7</p>
-        <p class="item">Item 8</p>
-        <p class="item">Item 9</p>
-        <p class="item">Item 10</p>
-        <p class="item">Item 11</p>
-        <p class="item">Item 12</p>
-        <p class="item">Item 13</p>
-        <p class="item">Item 14</p>
-        <p class="item">Item 15</p>
-        <p class="item">Item 16</p>
-        <p class="item">Item 17</p>
-        <p class="item">Item 18</p>
-        <p class="item">Item 19</p>
-        <p class="item">Item 20</p>
-    </div>
 
-    <ul class="pagination" id="pagination"></ul>
+  <h2>Search Bar with PHP and Database</h2>
 
-    <script src="script.js">
-    </script>
+  <!-- The form element with method="get" -->
+  <form action="search.php" method="get">
+    <!-- Input field for search term -->
+    <label for="searchTerm">Search:</label>
+    <input type="text" id="searchTerm" name="q">
+
+    <!-- The submit button -->
+    <input type="submit" value="Search">
+  </form>
+
 </body>
 </html>

@@ -11,5 +11,6 @@
     <title><?= $title ?? 'E-commerce/Admin' ?></title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../js/autocomplete.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
 </head>
 <body class="bg-white">

@@ -4,7 +4,7 @@
     require_once('../../functions.php');
     require_once('../../database/db.php'); 
     require_once ('../../js/flash.php');
-
+    
 ?>
 
 <?php require_once('menu_bar.php'); ?>
@@ -33,14 +33,14 @@
                     $nombre=$category['product_count'];
                     $id=$category['id'];
                     ?>
-                    <a href="from_category_to_products.php?cat_id=<?php echo $id ?>" class="rounded" style="box-shadow: 0px 0px 30px 0px rgb(240 240 240); border: none;">
+                    <a href="from_category_to_products.php?cat_id=<?php echo $id ?>" class="rounded" style="box-shadow: 0px 0px 10px 0px rgb(240 240 240); border: none;">
                         <div class="  rounded bg-white p-3" >
                             <p class=" text-xl"><?php echo $category_name ?></p>
                             <div>
                                 <img class="object-cover" src="image_categories/<?php echo $category['category_image']?>" alt="" style="width: 230px;height:230px;">
                             </div>
                             <div class=" gap-2">
-                            <p class="text-blue-500 text-2xl font-bold"><?php  echo '<span id="countValue" data-max="' . $nombre . '">' . $nombre . '</span> '; ?></p>
+                            <p class="text-blue-500 text-2xl font-bold"><?php  echo '<span id="countValue" data-max = "'. $nombre .'">' . $nombre . '</span> '; ?></p>
                             <p><?= ' Produit' . ($nombre >=2 ? 's' : '') ;?></p>
                             </div>
                         </div>
@@ -54,4 +54,5 @@
     
 </section>
 <script src="js/counter.js"></script>
+<script src="../user/popup/popup_ope-settings.js"></script>
 <?php require_once('../../html_partials/footer.html.php'); ?>
